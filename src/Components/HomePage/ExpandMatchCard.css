@@ -1,0 +1,25 @@
+.ExpandCard {
+    display: flex;
+}
+
+.ExpandCardLeft {
+    width: 150px;
+}
+.ExpandCardRight {
+    padding: 5px 5px 5px 15px;
+    width: 100%;
+    text-align: left;
+}
+.btnArena {
+    width: 150px;
+    margin: 1px 0;
+    font-size: .8em;
+}
+
+
+@media screen and (max-width: 730px) {
+    .ExpandCard {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}

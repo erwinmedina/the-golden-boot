@@ -1,0 +1,18 @@
+
+.selectOption {
+    justify-content: center;
+    margin: 2em auto;
+    max-width: 50%;
+}
+
+.selectOption > select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

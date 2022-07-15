@@ -1,0 +1,14 @@
+.navbar-brand {
+    margin-left: 20px;
+    font-family: "Sriracha";
+}
+
+.nav-item, .nav-link {
+    font-family: "Sriracha";
+}
+
+@media screen and (max-width: 992px) {
+    /* .navbar-brand {
+        margin: 0 auto;
+    } */
+}

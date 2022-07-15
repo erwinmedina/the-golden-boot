@@ -1,0 +1,124 @@
+.cardContainer > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardContainerHome, .cardContainerAway {
+    display: flex;
+}
+
+.cardContainerHome > div,
+.cardContainerAway > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxShadow {
+    box-shadow: 2px 100px #888888;
+}
+
+.matchesCardContainer {
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    margin: 25px 0px 25px 0;
+    padding: 25px;
+    width: 60%;
+    border: 2px rgba(0,0,0,.5) solid;
+    background: white;
+    box-shadow: 5px 5px #000000;
+    border-radius: 40px;
+}
+
+.matchesCardContainer > div {
+    width: 33%;
+}
+
+.matchesCardContainer:hover {
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+
+.matchCardName {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+.currentMatchday {
+    background: teal;
+    color: white;
+    border: 2px rgba(255,255,255,.6) solid;
+    box-shadow: 5px 5px #000000d2;
+}
+
+.cardContainerCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fullTime {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.matchday {
+    position: absolute;
+    margin-bottom: 4rem;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.halfTime {
+    position: absolute;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: italic;
+    margin-bottom: -4rem;
+}
+
+.teamLogo {
+    height: 70px;
+    width: 70px;
+}
+
+.expandable {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 10px;
+    border-radius: 40px;
+    border: 5px rgba(0,0,0,.2) solid;
+    background: rgba(255,255,255,.9);
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+@media screen and (max-width: 1000px) {
+    .matchesCardContainer {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .matchCardName {
+        display: none !important;
+    }
+    .cardContainerHome, .cardContainerAway {
+        justify-content: center;
+    }
+}

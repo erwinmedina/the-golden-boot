@@ -1,0 +1,20 @@
+.filterMatchTeam {
+    margin: 10px;
+}
+.filterMatchTeam > button {
+    margin: 10px;
+    width: 150px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 650px){
+    .filterMatchTeam {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .filterMatchTeam > button {
+        margin: 5px;
+    }
+}

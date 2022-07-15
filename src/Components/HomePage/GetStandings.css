@@ -1,0 +1,66 @@
+.teamImg > img {
+    width: 30px;
+    height: 30px;
+}
+.teamImg {
+    text-align: left;
+}
+
+.homePageStandings {
+    margin: 2em auto 0 auto;
+}
+.homePageStandingsContainer > h2 {
+    color: white;
+}
+
+#tableStandings {
+    align-items: center;
+    margin: 2em auto;
+    width: 70%;
+    background: rgba(255,255,255,.7);
+    border-radius: 20px;
+    border-spacing: 0 50px;
+}
+#tableStandings > thead > tr > th:first-of-type {
+    border-top-left-radius: 20px;
+}
+#tableStandings > thead > tr > th:last-of-type {
+    border-top-right-radius: 20px;
+}
+
+.tableRow {
+    vertical-align: middle;
+}
+.teamName {
+    text-align: left;
+}
+.teamStats {
+    width: 50px;
+}
+thead {
+    background: skyblue;
+}
+
+.tableContainer {
+    margin: 1rem;
+}
+
+thead > tr {
+    vertical-align: middle;
+}
+
+thead > tr > th:first-child {
+    padding: 10px;
+
+}
+
+thead > tr > th:last-child {
+    padding: 10px;
+}
+
+
+@media screen and (max-width: 1700px) {
+    .homePageStandings {
+        margin: 2em auto 0 auto;
+    }
+}
