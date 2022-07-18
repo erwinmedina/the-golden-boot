@@ -22,29 +22,57 @@
 
 .matchesCardContainer {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content:space-evenly;
-    margin: 25px 0px 25px 0;
-    padding: 25px;
+    margin: 10px 0px 10px 0;
+    /* padding: 25px; */
     width: 60%;
     border: 2px rgba(0,0,0,.5) solid;
     background: white;
     box-shadow: 5px 5px #000000;
-    border-radius: 40px;
+    border-radius: 10px;
 }
 
-.matchesCardContainer > div {
+.cardContainer > div:last-child{
+    margin: 0 0 100px 0;
+}
+
+.topMatchCard {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    background: rgba(0,0,0,.2);
+}
+
+.botMatchCard {
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    margin: 10px 0px 10px 0;
+    width: 100%;
+    padding: 15px;
+}
+
+.botMatchCard > div {
     width: 33%;
 }
 
 .matchesCardContainer:hover {
-    transition: 0.5s;
-    transform: scale(1.1);
+    transition: 1s;
+    transform: scale(1.05);
 }
 
 .matchCardName {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.matchdayMatch {
+    color: white !important;
 }
 
 .currentMatchday {
@@ -71,11 +99,14 @@
 }
 
 .matchday {
-    position: absolute;
-    margin-bottom: 4rem;
+    /* position: absolute; */
+    /* margin-bottom: 4rem; */
+    justify-content: space-around;
     font-size: 15px;
     font-weight: normal;
-    font-style: italic;
+    /* font-style: italic; */
+    font-family: "Sriracha";
+    color: black;
 }
 
 .halfTime {
@@ -95,8 +126,9 @@
     display: flex;
     flex-direction: column;
     width: 60%;
-    padding: 10px;
-    border-radius: 40px;
+    /* padding: 10px; */
+    border-radius: 10px;
+    margin: 10px 0;
     border: 5px rgba(0,0,0,.2) solid;
     background: rgba(255,255,255,.9);
 }
@@ -123,5 +155,11 @@
     }
     .cardContainerHome, .cardContainerAway {
         justify-content: center;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .topMatchCard {
+        flex-direction: column;
     }
 }

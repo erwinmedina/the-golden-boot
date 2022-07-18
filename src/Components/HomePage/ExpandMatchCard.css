@@ -3,7 +3,9 @@
 }
 
 .ExpandCardLeft {
-    width: 150px;
+    width: 200px;
+    background: lightgray;
+    padding: 15px;
 }
 .ExpandCardRight {
     padding: 5px 5px 5px 15px;

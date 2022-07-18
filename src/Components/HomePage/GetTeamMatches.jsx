@@ -5,6 +5,7 @@ import "./GetTeamMatches.css"
 
 
 export default function GetTeamMatches({id, teamArray, allMatches, setAllMatches, filteredMatches, setFilteredMatches, team, setTeam, matchday, filter}) {
+    
     useEffect(function() {
         async function filterMatchTeams() {
             setFilteredMatches([]);
@@ -22,17 +23,20 @@ export default function GetTeamMatches({id, teamArray, allMatches, setAllMatches
         setTeam(event.target.value)
     }
 
-    function handleHomeGoalsSort() {
-        if (filteredMatches.length) {
-            for (let i = 0; i < filteredMatches.length; i++) {
-                console.log(filteredMatches[i].score.fullTime.homeTeam)
-                filteredMatches[i].sort((a,b) => a.score.fullTime.homeTeam > b.score.fullTime.homeTeam ? 1:-1);
-            }
-        }
-    }
+    // function handleHomeGoalsSort() {
+    //     if (filteredMatches.length) {
+    //         for (let i = 0; i < filteredMatches.length; i++) {
+    //             console.log(filteredMatches[i].score.fullTime.homeTeam)
+    //             filteredMatches[i].sort((a,b) => a.score.fullTime.homeTeam > b.score.fullTime.homeTeam ? 1:-1);
+    //         }
+    //     }
+    // }
     
     return (
         <div className="container">
+            <h1 className="seasonTitle">
+                {allMatches.length >= 1 && allMatches[0].competition.name}
+            </h1>
             <div className="selectOption">
                 <select className="form-select" onChange={handleTeam} name="team" id="team">
                     {teamArray && teamArray.map(team =>
@@ -40,6 +44,9 @@ export default function GetTeamMatches({id, teamArray, allMatches, setAllMatches
                     )}
                 </select>
             </div>
+            {/* <div>
+                <button onClick={handleReverseMatchdaySort} className="btn btn-primary">Reverse</button>
+            </div> */}
             {/* <div>
                 <h3>
                     {filteredMatches[0].season.startDate.slice(0,5)}  

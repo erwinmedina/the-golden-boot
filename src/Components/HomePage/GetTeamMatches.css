@@ -5,3 +5,15 @@
 .buttonCategory > button {
     margin: 0 10px;
 }
+
+.homePageStandingsContainer > h1 {
+    color: white;
+    font-family: "Sriracha";
+}
+
+.seasonTitle {
+    color: white;
+    font-family: "Sriracha";
+    margin: 40px 0;
+
+}

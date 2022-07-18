@@ -40,17 +40,11 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
         setWiki(tempWiki);
     }
 
-    // let mapIndex = "map" + index;
-    // let mapIndexHash = "#map" + index;
-    // let homeWiki = "https://en.wikipedia.org/wiki/" + match.homeTeam.homeTeamSearch;
-    // let awayWiki = "https://en.wikipedia.org/wiki/" + match.awayTeam.awayTeamSearch;
-
-
     useEffect(function() {
         async function getDate() {
             const dateInfo = new Date(match.utcDate);
             const dateArray = dateInfo.toLocaleString().split(",")
-            setDate(dateArray[0]);
+            setDate(dateInfo.toDateString());
             setTime(dateArray[1]);
         } getDate();
 
@@ -75,9 +69,6 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
                     <div>
                         <button className="btnArena btn btn-primary" onClick={handleWikiAway} data-toggle="collapse" data-target={wiki[1].dataTarget}>Wiki <br/>{match.awayTeam.name}</button>
                     </div>
-                    {/* <div>
-                        <button type="button" className="btnArena btn btn-primary" data-toggle="collapse" data-target={mapIndexHash}>Map / Arena</button>
-                    </div> */}
                 </div>
 
                 <div className="ExpandCardRight">
@@ -106,13 +97,11 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
 
             <div className="page" id="accordion">
                 <div class="stadiumMapShow collapse" data-parent="#accordion" id={wiki[0].dataID}>
-                    {/* <StadiumMap lat={51.5549} lng={-0.109112}/> */}
                     <div class="embed-responsive embed-responsive-1by1">
                         <iframe class="embed-responsive-item" src={wiki[0].wiki} allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="stadiumMapShow collapse" data-parent="#accordion" id={wiki[1].dataID}>
-                    {/* <StadiumMap lat={51.5549} lng={-0.109112}/> */}
                     <div class="embed-responsive embed-responsive-1by1">
                         <iframe class="embed-responsive-item" src={wiki[1].wiki} allowfullscreen></iframe>
                     </div>

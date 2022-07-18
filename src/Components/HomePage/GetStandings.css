@@ -18,7 +18,6 @@
 }
 .scoreStandings {
     width: 100% !important;
-    border-spacing: 250px !important;
 }
 
 .scoreStandings > tbody > tr > td {
@@ -27,9 +26,9 @@
 
 #tableStandings {
     align-items: center;
-    margin: 2em auto;
+    margin: 0 auto;
     width: 100%;
-    background: rgba(255,255,255,.7);
+    background: rgba(255,255,255,1);
     border-radius: 20px;
     border-spacing: 0 50px;
 }
@@ -37,6 +36,20 @@
     border-top-left-radius: 20px;
 }
 #tableStandings > thead > tr > th:last-of-type {
+    border-top-right-radius: 20px;
+}
+#goalStandings {
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    background: rgba(255,255,255,1);
+    border-radius: 20px;
+    border-spacing: 0 50px;
+}
+#goalStandings > thead > tr > th:first-of-type {
+    border-top-left-radius: 20px;
+}
+#goalStandings > thead > tr > th:last-of-type {
     border-top-right-radius: 20px;
 }
 
@@ -88,6 +101,33 @@ tbody tr:last-child td {
     border-radius: 20px;
 }
 
+.goalScorerStats > div {
+    margin: 20px auto;
+    padding: 10px;
+    background: lightgray;
+    border-radius: 30px;
+    width: 90%;
+}
+.tableStats {
+    margin: 40px 0 0 0;
+}
+.tableStats > div {
+    margin: 40px auto;
+    padding: 10px;
+    background: lightgray;
+    border-radius: 30px;
+    width: 70%;
+}
+hr {
+    border: none;
+    height: 3px;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 20px;
+    background: white;
+}
+
+
 
 @media screen and (max-width: 1700px) {
     .homePageStandings {
@@ -98,6 +138,14 @@ tbody tr:last-child td {
 @media screen and (max-width: 992px) {
     .homePageStandings {
         flex-direction: column;
+    }
+}
+@media screen and (max-width: 767px) {
+    .tableStats > div {
+        width: 100%;
+    }
+    .goalScorerStats > div {
+        width: 100%;
     }
 }
 

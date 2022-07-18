@@ -11,15 +11,16 @@ export default function GetStandings({id, standings, setStandings, setMatchday, 
 
     return (
         <div className="container homePageStandings">
-            <div className="homePageStandingsContainer">
+            <div className="homePageStandingsContainer goalScorerStats">
                 <h2>Top 10 Goalscorers</h2>
                 <h3>
                     {goalScorers[0].season.startDate.slice(0,5)}  
                     {goalScorers[0].season.endDate.slice(0,4)} Season
                 </h3>
+                <hr />
                 {goalScorers[0].scorers.length ? 
                     <div className="tableContainer table-responsive">
-                        <table id="tableStandings" className="scoreStandings table table-hover table-sm ">
+                        <table id="goalStandings" className="scoreStandings table table-striped table-hover table-sm ">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -52,14 +53,15 @@ export default function GetStandings({id, standings, setStandings, setMatchday, 
                     </div>
                 }
             </div>
-            <div className="homePageStandingsContainer">
+            <div className="homePageStandingsContainer tableStats">
                 <h2>{Object.keys(standings).length && standings.competition.name} Standings</h2>
                 <h3>
                     {Object.keys(standings).length && standings.season.startDate.slice(0,5)}  
                     {Object.keys(standings).length && standings.season.endDate.slice(0,4)} Season
                 </h3>
+                <hr />
                 <div className="tableContainer table-responsive">
-                    <table id="tableStandings" className="table table-hover table-sm ">
+                    <table id="tableStandings" className="table table-hover table-striped table-sm ">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>

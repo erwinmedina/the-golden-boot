@@ -26,6 +26,9 @@ export default function GetAllMatches({id, setSeasonID, teamArray, allMatches, m
 
     return (
         <div className="container">
+            <h1 className="seasonTitle">
+                {allMatches.length >= 1 && allMatches[0].competition.name}
+            </h1>
             <div className="selectOption">
                 {/* Determines the number of matchdays available for a dropdown  */}
                 <select className="form-select" onChange={handleMatchday} name="matchdays" id="matchdays">
