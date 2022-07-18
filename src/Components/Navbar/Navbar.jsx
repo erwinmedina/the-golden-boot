@@ -1,6 +1,6 @@
 import "./Navbar.css";
 
-export default function Navbar({setId, setFilter}) {
+export default function Navbar({setId, setFilter, setSeasonID}) {
     function handleMatch() {
         setFilter('match');
     }
@@ -9,6 +9,9 @@ export default function Navbar({setId, setFilter}) {
     }
     function handleTable() {
         setFilter('table')
+    }
+    function handleSeason(event) {
+        setSeasonID(parseInt(event.target.value));
     }
 
     return (
@@ -42,6 +45,21 @@ export default function Navbar({setId, setFilter}) {
                         {/* <a class="dropdown-item" onClick={() => setId(2001)} href="#">CHAMPIONS LEAGUE?</a> */}
                     </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Season</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" onClick={() => setSeasonID(2022)} value="2022" href="#">2022-2023</a>
+                        <a class="dropdown-item" onClick={() => setSeasonID(2021)} value="2021" href="#">2021-2022</a>
+                        <a class="dropdown-item" onClick={() => setSeasonID(2020)} value="2020" href="#">2020-2021</a>
+                    </div>
+                </li>
+                {/* <li className="listSelect">
+                    <select className="navbar-select custom-select custom-select-sm" onChange={handleSeason} name="season" id="season">
+                        <option value="2022">2022-2023</option>
+                        <option value="2021">2021-2022</option>
+                        <option value="2020">2020-2021</option>
+                    </select>
+                </li> */}
             </ul>
         </div>
       </nav> 

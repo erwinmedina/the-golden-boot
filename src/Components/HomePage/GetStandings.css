@@ -8,15 +8,27 @@
 
 .homePageStandings {
     margin: 2em auto 0 auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+    vertical-align: text-top;
 }
-.homePageStandingsContainer > h2 {
+.homePageStandingsContainer > h2, h3 {
     color: white;
+    font-family: "Sriracha";
+}
+.scoreStandings {
+    width: 100% !important;
+    border-spacing: 250px !important;
+}
+
+.scoreStandings > tbody > tr > td {
+    padding: 5px;
 }
 
 #tableStandings {
     align-items: center;
     margin: 2em auto;
-    width: 70%;
+    width: 100%;
     background: rgba(255,255,255,.7);
     border-radius: 20px;
     border-spacing: 0 50px;
@@ -58,9 +70,39 @@ thead > tr > th:last-child {
     padding: 10px;
 }
 
+tbody tr:last-child td {
+    border-style: none;
+}
+
+.emptyScorers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 70%;
+    background: rgba(255,255,255,.5);
+    border: 2px rgba(255,255,255,1) solid;
+    margin: 50px auto;
+    color: black;
+    font-family: "Sriracha";
+    border-radius: 20px;
+}
+
 
 @media screen and (max-width: 1700px) {
     .homePageStandings {
         margin: 2em auto 0 auto;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .homePageStandings {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .homePageStandings {
+        font-size: .7rem;
     }
 }

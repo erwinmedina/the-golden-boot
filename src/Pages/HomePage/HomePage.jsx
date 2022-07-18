@@ -17,8 +17,9 @@ export default function Home() {
     const [numOfMatchesArray, setNumOfMatchesArray] = useState([]);
     const [team, setTeam] = useState();
     const [standings, setStandings] = useState({});
+    const [goalScorers, setGoalScorers] = useState([]);
     const [id, setId] = useState(2021);
-    const [seasonID, setSeasonID] = useState(2022);
+    const [seasonID, setSeasonID] = useState(2021);
 
 
     useEffect(function() {
@@ -37,11 +38,16 @@ export default function Home() {
         } getAllMatches();
 
         async function getStanding() {
-            const standing = await footballService.getStandings(id);
+            const standing = await footballService.getStandings(id, seasonID);
             setStandings(standing);
         }
         getStanding();
 
+        async function getGoalScorers() {
+            const scorers = await footballService.getScorers(id, seasonID);
+            setGoalScorers([scorers]);
+        }
+        getGoalScorers();
     }, [id, seasonID])
 
     useEffect(function() {
@@ -61,7 +67,7 @@ export default function Home() {
     return (
         <div>
             <div className="sticky-top">
-                <Navbar setId={setId} setFilter={setFilter}/>
+                <Navbar setId={setId} setFilter={setFilter} setSeasonID={setSeasonID}/>
             </div>
 
                 {filter === 'match' ?
@@ -103,6 +109,7 @@ export default function Home() {
                         standings={standings} 
                         setStandings={setStandings}
                         setMatchday={setMatchday}
+                        goalScorers={goalScorers}
                     />
                     :
                     ""

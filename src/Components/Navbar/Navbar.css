@@ -7,6 +7,18 @@
     font-family: "Sriracha";
 }
 
+.listSelect {
+    vertical-align: middle;
+    align-items: center;
+    display: flex;
+}
+
+.navbar-select {
+    width: 120px;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
 @media screen and (max-width: 992px) {
     /* .navbar-brand {
         margin: 0 auto;

@@ -94,7 +94,7 @@
 .expandable {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 60%;
     padding: 10px;
     border-radius: 40px;
     border: 5px rgba(0,0,0,.2) solid;
@@ -110,6 +110,9 @@
 
 @media screen and (max-width: 1000px) {
     .matchesCardContainer {
+        width: 90%;
+    }
+    .expandable {
         width: 90%;
     }
 }

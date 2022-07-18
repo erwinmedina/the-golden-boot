@@ -10,10 +10,6 @@ export default function GetAllMatches({id, setSeasonID, teamArray, allMatches, m
     function handleMatchday(event) {
         setMatchday(event.target.value);
     }
-    function handleSeason(event) {
-        console.log(parseInt(event.target.value), typeof(event.target.value));
-        setSeasonID(parseInt(event.target.value));
-    }
 
     useEffect(function() {
         async function filterMatches() {
@@ -37,11 +33,12 @@ export default function GetAllMatches({id, setSeasonID, teamArray, allMatches, m
                         <option value={number}>Matchday {number}</option>
                     )}
                 </select>
-                {/* <select className="form-select" onChange={handleSeason} name="season" id="season">
-                    <option value="2022">2022-2023</option>
-                    <option value="2021">2021-2022</option>
-                    <option value="2020">2020-2021</option>
-                </select> */}
+            </div>
+            <div>
+            <h3>
+                    {filteredMatches[0].season.startDate.slice(0,5)}  
+                    {filteredMatches[0].season.endDate.slice(0,4)} Season
+                </h3>
             </div>
             <div className="cardContainer">
                 {filteredMatches.length && filteredMatches.map((match, index) => (

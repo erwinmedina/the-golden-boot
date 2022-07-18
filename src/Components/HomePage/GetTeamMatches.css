@@ -1,0 +1,7 @@
+.buttonCategory {
+    display: flex;
+    flex-direction: row !important;
+}
+.buttonCategory > button {
+    margin: 0 10px;
+}
