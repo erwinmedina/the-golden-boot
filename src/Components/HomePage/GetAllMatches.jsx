@@ -34,12 +34,12 @@ export default function GetAllMatches({id, setSeasonID, teamArray, allMatches, m
                     )}
                 </select>
             </div>
-            <div>
-            <h3>
+            {/* <div>
+                <h3>
                     {filteredMatches[0].season.startDate.slice(0,5)}  
                     {filteredMatches[0].season.endDate.slice(0,4)} Season
                 </h3>
-            </div>
+            </div> */}
             <div className="cardContainer">
                 {filteredMatches.length && filteredMatches.map((match, index) => (
                     <MatchesCard index={index} teamArray={teamArray} match={match} matchday={matchday} filter={filter}/>

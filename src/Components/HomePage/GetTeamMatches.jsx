@@ -40,12 +40,12 @@ export default function GetTeamMatches({id, teamArray, allMatches, setAllMatches
                     )}
                 </select>
             </div>
-            <div>
+            {/* <div>
                 <h3>
                     {filteredMatches[0].season.startDate.slice(0,5)}  
                     {filteredMatches[0].season.endDate.slice(0,4)} Season
                 </h3>
-            </div>
+            </div> */}
             {/* <div className="buttonCategory">
                 <button className="btn btn-primary">Matchday</button>
                 <button onClick={handleHomeGoalsSort} className="btn btn-primary">Home Goals</button>
