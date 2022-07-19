@@ -48,6 +48,15 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
             setTime(dateArray[1]);
         } getDate();
 
+        async function updateWiki() {
+            let tempWiki = [...wiki];
+            let newHome = match.homeTeam.homeTeamSearch;
+            let newAway = match.awayTeam.awayTeamSearch;
+            tempWiki[0].wiki = "https://en.wikipedia.org/wiki/" + newHome;
+            tempWiki[1].wiki = "https://en.wikipedia.org/wiki/" + newAway;
+            setWiki(tempWiki);
+        } updateWiki();
+
 
         async function stadiumName() {
             for (let i = 0; i < teamArray.length; i++) {

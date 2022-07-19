@@ -30,19 +30,13 @@ export default function GetAllMatches({id, setSeasonID, teamArray, allMatches, m
                 {allMatches.length >= 1 && allMatches[0].competition.name}
             </h1>
             <div className="selectOption">
-                {/* Determines the number of matchdays available for a dropdown  */}
                 <select className="form-select" onChange={handleMatchday} name="matchdays" id="matchdays">
                     {numOfMatchesArray.length && numOfMatchesArray.map(number =>
                         <option value={number}>Matchday {number}</option>
                     )}
                 </select>
             </div>
-            {/* <div>
-                <h3>
-                    {filteredMatches[0].season.startDate.slice(0,5)}  
-                    {filteredMatches[0].season.endDate.slice(0,4)} Season
-                </h3>
-            </div> */}
+            
             <div className="cardContainer">
                 {filteredMatches.length && filteredMatches.map((match, index) => (
                     <MatchesCard index={index} teamArray={teamArray} match={match} matchday={matchday} filter={filter}/>

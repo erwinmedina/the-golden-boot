@@ -30,4 +30,8 @@ iframe {
         flex-direction: column-reverse;
         align-items: center;
     }
+    .ExpandCardLeft {
+        width: 100%;
+        align-items: center;
+    }
 }
