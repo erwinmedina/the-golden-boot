@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/thegoldenboot/static/css/main.1b734891.css",
+    "main.js": "/thegoldenboot/static/js/main.e5427ca3.js",
+    "index.html": "/thegoldenboot/index.html",
+    "main.1b734891.css.map": "/thegoldenboot/static/css/main.1b734891.css.map",
+    "main.e5427ca3.js.map": "/thegoldenboot/static/js/main.e5427ca3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b734891.css",
+    "static/js/main.e5427ca3.js"
+  ]
+}
