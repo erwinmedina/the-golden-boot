@@ -7,7 +7,7 @@
 ## Application Description:
 The idea of The Golden Boot is to have easy access to top tier european soccer/football leagues. Interested in knowing who's leading the table in Germany, England, Spain? Boom. You want to know what the last matchday looked like ? Boom. You want to filter by your favorite team and see who they're playing next? Boom. 
 
-The Golden Boot is the name of the award, awarded to the leading goalscorer for a particular country. 
+The Golden Boot is the name of the award, awarded to the leading goalscorer for a particular competition. 
 
 The Golden Boot is a revised version of FootballDeets, an earlier verison of this project designed by me. Utilizing the same API, I've designed The Golden Boot with a bit more functionality. Within the pre-design work, I kept mobile friendly in the forefront - ensuring that this project would not simply be a computer only design but also available on mobile.
 
