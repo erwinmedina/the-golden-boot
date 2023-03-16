@@ -3,26 +3,32 @@ const path = require('path');
 const cors = require("cors")
 
 require('dotenv').config();
-// require('./config/database');
 
 const app = express();
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'build')));
 
-
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-const port = process.env.PORT || 3001;
+// import {PythonShell} from 'python-shell';
+
+// PythonShell.run('main.py', null, function (err) {
+//   if (err) throw err;
+//   console.log('finished');
+// });
+
+
+const port = process.env.PORT || 8000;
 
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`);
 });
 
 
-const whitelist = ["http://localhost:3000"]
+const whitelist = ["https://erwinmedina.github.io/the-golden-boot/"]
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || whitelist.indexOf(origin) !== -1) {

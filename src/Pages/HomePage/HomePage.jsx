@@ -6,6 +6,7 @@ import * as footballService from "../../Utilities/football-service"
 import "./HomePage.css";
 
 import { useEffect, useState } from "react"
+import TransferMarket from "../../Components/HomePage/TransferMarket";
 
 export default function Home() {
     const [filter, setFilter] = useState('match');
@@ -19,7 +20,8 @@ export default function Home() {
     const [standings, setStandings] = useState({});
     const [goalScorers, setGoalScorers] = useState([]);
     const [id, setId] = useState(2021);
-    const [seasonID, setSeasonID] = useState(2021);
+    const [seasonID, setSeasonID] = useState(2022);
+    // const [playerInfo, setPlayerInfo] = useState([])
 
 
     useEffect(function() {
@@ -48,6 +50,12 @@ export default function Home() {
             setGoalScorers([scorers]);
         }
         getGoalScorers();
+
+        // async function getPlayers() {
+        //     const player = await footballService.getPlayers();
+        //     setPlayerInfo(player)
+        // }
+        // getPlayers()
     }, [id, seasonID])
 
     useEffect(function() {
@@ -113,6 +121,9 @@ export default function Home() {
                     />
                     :
                     ""
+                }
+                {filter === "transfer" ?
+                    <TransferMarket/>:""
                 }
                 
         </div>

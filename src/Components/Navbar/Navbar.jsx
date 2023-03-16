@@ -1,6 +1,9 @@
 import "./Navbar.css";
+import "../../Pages/App/App.css"
+import useLocalStorage from "use-local-storage";
 
-export default function Navbar({setId, setFilter, setSeasonID}) {
+export default function Navbar({setId, setFilter, setSeasonID, themeToggler}) {
+    
     function handleMatch() {
         setFilter('match');
     }
@@ -9,6 +12,9 @@ export default function Navbar({setId, setFilter, setSeasonID}) {
     }
     function handleTable() {
         setFilter('table')
+    }
+    function handleTransfer() {
+        setFilter('transfer')
     }
     function handleSeason(event) {
         setSeasonID(parseInt(event.target.value));
@@ -30,18 +36,21 @@ export default function Navbar({setId, setFilter, setSeasonID}) {
                     <a onClick={handleTeam} class="nav-link" href="#">Team</a>
                 </li>
                 <li>
+                    <a onClick={handleTransfer} class="nav-link" href="#">Transfer</a>
+                </li>
+                <li>
                     <a onClick={handleTable} class="nav-link" href="#">Table</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Leagues</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" onClick={() => setId(2021)} href="#">Premier League</a>
-                        <a class="dropdown-item" onClick={() => setId(2016)} href="#">English Championship</a>
-                        <a class="dropdown-item" onClick={() => setId(2014)} href="#">La Liga</a>
-                        <a class="dropdown-item" onClick={() => setId(2002)} href="#">Bundesliga</a>
-                        <a class="dropdown-item" onClick={() => setId(2019)} href="#">Serie A</a>
-                        <a class="dropdown-item" onClick={() => setId(2015)} href="#">Ligue 1</a>
+                        <a class="dropdown-item" onClick={() => setId(2021)} href="#"><span className="flag">Premier League <span className="actualFlag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span></span></a>
+                        <a class="dropdown-item" onClick={() => setId(2016)} href="#"><span className="flag">Championship <span className="actualFlag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span></span></a>
+                        <a class="dropdown-item" onClick={() => setId(2014)} href="#"><span className="flag">La Liga <span className="actualFlag">🇪🇸</span></span></a>
+                        <a class="dropdown-item" onClick={() => setId(2002)} href="#"><span className="flag">Bundesliga <span className="actualFlag">🇩🇪</span></span></a>
+                        <a class="dropdown-item" onClick={() => setId(2019)} href="#"><span className="flag">Serie A <span className="actualFlag">🇮🇹</span></span></a>
+                        <a class="dropdown-item" onClick={() => setId(2015)} href="#"><span className="flag">Ligue 1 <span className="actualFlag">🇫🇷</span></span></a>
                         {/* <a class="dropdown-item" onClick={() => setId(2001)} href="#">CHAMPIONS LEAGUE?</a> */}
                     </div>
                 </li>

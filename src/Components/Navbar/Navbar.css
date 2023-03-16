@@ -19,6 +19,13 @@
     margin: 0 auto;
     vertical-align: middle;
 }
+.flag {
+    display: flex;
+    justify-content: space-between;
+}
+.actualFlag {
+    margin: 0 0 0 15px;
+}
 
 @media screen and (max-width: 992px) {
     /* .navbar-brand {
