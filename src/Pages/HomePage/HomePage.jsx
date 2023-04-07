@@ -3,7 +3,9 @@ import GetTeamMatches from "../../Components/HomePage/GetTeamMatches";
 import GetStandings from "../../Components/HomePage/GetStandings";
 import Navbar from "../../Components/Navbar/Navbar";
 import * as footballService from "../../Utilities/football-service"
+import * as footballAPI from "../../Utilities/football-api"
 import "./HomePage.css";
+// import { getTeams } from "controllers/teamsController";
 
 import { useEffect, useState } from "react"
 import TransferMarket from "../../Components/HomePage/TransferMarket";

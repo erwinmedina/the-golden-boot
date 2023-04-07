@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.football-data.org/v2";
+const BASE_URL = 'http://localhost:3000/api';
 const NEW_URL = "https://api.football-data.org/v4";
 
 export function getTeams(id, seasonID) {
