@@ -2,8 +2,6 @@ import GetAllMatches from "../../Components/HomePage/GetAllMatches"
 import GetTeamMatches from "../../Components/HomePage/GetTeamMatches";
 import GetStandings from "../../Components/HomePage/GetStandings";
 import Navbar from "../../Components/Navbar/Navbar";
-import * as footballService from "../../Utilities/football-service"
-import * as footballAPI from "../../Utilities/football-api"
 import "./HomePage.css";
 // import { getTeams } from "controllers/teamsController";
 
@@ -22,57 +20,60 @@ export default function Home() {
     const [standings, setStandings] = useState({});
     const [goalScorers, setGoalScorers] = useState([]);
     const [id, setId] = useState(2021);
-    const [seasonID, setSeasonID] = useState(2022);
+    const [seasonID, setSeasonID] = useState(2023);
     // const [playerInfo, setPlayerInfo] = useState([])
 
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                // Fetch team info
+                const teamsResponse = await fetch(`/api/teams?id=${id}&seasonID=${seasonID}`);
+                const teamsData = await teamsResponse.json();
+                setAllTeamInfo(teamsData);
 
-    useEffect(function() {
-        async function getTeamInfo() {
-            const allTeams = await footballService.getTeams(id, seasonID);
-            setAllTeamInfo(allTeams)
-        } getTeamInfo();
-        
-        async function getAllMatches() {
-            const match = await footballService.getMatches(id, seasonID);
-            for (let i = 0; i < match.matches.length; i++) {
-                match.matches[i].homeTeam.homeTeamSearch = match.matches[i].homeTeam.name.split(" ").join("_")
-                match.matches[i].awayTeam.awayTeamSearch = match.matches[i].awayTeam.name.split(" ").join("_")
+                // Fetch matches
+                const matchesResponse = await fetch(`/api/matches?id=${id}&seasonID=${seasonID}`);
+                const matchesData = await matchesResponse.json();
+                // for (let i = 0; i < matchesData.matches.length; i++) {
+                //     matchesData.matches[i].homeTeam.homeTeamSearch = matchesData.matches[i].homeTeam.name.split(" ").join("_")
+                //     matchesData.matches[i].awayTeam.awayTeamSearch = matchesData.matches[i].awayTeam.name.split(" ").join("_")
+                // }
+                setAllMatches([matchesData]);
+
+                // Fetch standings
+                const standingsResponse = await fetch(`/api/standings?id=${id}&seasonID=${seasonID}`);
+                const standingsData = await standingsResponse.json();
+                setStandings(standingsData);
+
+                // Fetch goal scorers
+                const scorersResponse = await fetch(`/api/scorers?id=${id}&seasonID=${seasonID}`);
+                const scorersData = await scorersResponse.json();
+                setGoalScorers([scorersData]);
+            } catch (error) {
+                console.error('Error fetching data:', error);
             }
-            setAllMatches([match])
-        } getAllMatches();
-
-        async function getStanding() {
-            const standing = await footballService.getStandings(id, seasonID);
-            setStandings(standing);
         }
-        getStanding();
+        fetchData();
+    }, [id, seasonID]);
 
-        async function getGoalScorers() {
-            const scorers = await footballService.getScorers(id, seasonID);
-            setGoalScorers([scorers]);
-        }
-        getGoalScorers();
-
-        // async function getPlayers() {
-        //     const player = await footballService.getPlayers();
-        //     setPlayerInfo(player)
-        // }
-        // getPlayers()
-    }, [id, seasonID])
-
-    useEffect(function() {
+    useEffect(() => {
         async function allTeamNames() {
-            const allTeams = allTeamInfo;
-            allTeams.teams.sort((a,b) => a.shortName > b.shortName ? 1:-1);
-            setTeamArray(allTeams.teams);
-            setTeam(allTeams.teams[0].name);
-            setNumOfMatchesArray([]);
-            setMatchday(allTeams.season.currentMatchday);
-            for (let i = 1; i <= (allTeams.count * 2 - 2); i++) {
-                setNumOfMatchesArray(numOfMatchesArray => [...numOfMatchesArray, i])
+            try {
+                const allTeams = allTeamInfo;
+                allTeams.teams.sort((a, b) => a.shortName > b.shortName ? 1 : -1);
+                setTeamArray(allTeams.teams);
+                setTeam(allTeams.teams[0].name);
+                setNumOfMatchesArray([]);
+                setMatchday(allTeams.season.currentMatchday);
+                for (let i = 1; i <= allTeams.count * 2 - 2; i++) {
+                    setNumOfMatchesArray(numOfMatchesArray => [...numOfMatchesArray, i]);
+                }
+            } catch (error) {
+                console.error('Error processing team names:', error);
             }
-        } allTeamNames()
-    }, [allTeamInfo])
+        }
+        allTeamNames();
+    }, [allTeamInfo]);
 
     return (
         <div>

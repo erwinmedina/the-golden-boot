@@ -80,7 +80,7 @@ export default function GetStandings({id, standings, setStandings, setMatchday, 
                             {Object.keys(standings).length && standings.standings[0].table.map(team => 
                                 <tr className="tableRow">
                                     <td>{team.position}</td>
-                                    <td className="teamImg"><img alt="stuff" src={team.team.crestUrl}/></td>
+                                    <td className="teamImg"><img alt="stuff" src={team.team.crest}/></td>
                                     <td className="teamName">{team.team.name}</td>
                                     <td className="teamStats">{team.playedGames}</td>
                                     <td className="teamStats">{team.won}</td>

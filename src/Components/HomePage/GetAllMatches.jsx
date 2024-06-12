@@ -1,4 +1,3 @@
-import * as footballService from "../../Utilities/football-service"
 import "./GetAllMatches.css"
 
 import MatchesCard from "./MatchesCard";

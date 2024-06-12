@@ -38,7 +38,7 @@ export default function MatchesCard({index, teamArray, match, matchday, filter})
                         {teamArray.length && teamArray.map(teamLogo => {
                             if (teamLogo.name === match.homeTeam.name) {
                                 return(
-                                    <img className="teamLogo teamLogoHome" src={teamLogo.crestUrl} alt="" />    
+                                    <img className="teamLogo teamLogoHome" src={teamLogo.crest} alt="" />    
                                 )
                             }
                         })}
@@ -58,8 +58,8 @@ export default function MatchesCard({index, teamArray, match, matchday, filter})
                         <div className="score">
                             <p className="fullTime">
                                 
-                                {match.score.fullTime.homeTeam == null ? "" : <span>{match.score.fullTime.homeTeam} : {match.score.fullTime.awayTeam} </span>}
-                                {match.score.halfTime.homeTeam == null ? "" : <span className="halfTime"> Half: {match.score.halfTime.homeTeam} : {match.score.halfTime.awayTeam}</span>}
+                                {match.score.fullTime.home == null ? "" : <span>{match.score.fullTime.home} : {match.score.fullTime.away} </span>}
+                                {match.score.halfTime.home == null ? "" : <span className="halfTime"> Half: {match.score.halfTime.home} : {match.score.halfTime.away}</span>}
                             </p>
                         </div>
                     </div>
@@ -78,7 +78,7 @@ export default function MatchesCard({index, teamArray, match, matchday, filter})
                         {teamArray.length && teamArray.map(teamLogo => {
                             if (teamLogo.name === match.awayTeam.name) {
                                 return(
-                                    <img className="teamLogo teamLogoAway" src={teamLogo.crestUrl} alt="" />    
+                                    <img className="teamLogo teamLogoAway" src={teamLogo.crest} alt="" />    
                                 )
                             }
                         })}
