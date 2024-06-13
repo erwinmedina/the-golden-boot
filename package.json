@@ -2,6 +2,7 @@
   "name": "thegoldenboot",
   "homepage": "https://erwinmedina.github.io/the-golden-boot",
   "version": "0.1.0",
+  "main": "server/server.js",
   "proxy": "http://localhost:3001/",
   "private": true,
   "dependencies": {
@@ -30,8 +31,6 @@
   "scripts": {
     "start": "node server/server.js",
     "build": "react-scripts build",
-    "deploy": "gh-pages -d build",
-    "dev": "concurrently \"npm run server\" \"npm start\"",
     "server": "node server/server.js",
     "client": "react-scripts start"
   },
