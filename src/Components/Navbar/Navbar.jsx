@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import "../../Pages/App/App.css"
-import useLocalStorage from "use-local-storage";
+import { Link } from 'react-router-dom';
 
 export default function Navbar({setId, setFilter, setSeasonID, themeToggler}) {
     
@@ -30,16 +30,19 @@ export default function Navbar({setId, setFilter, setSeasonID, themeToggler}) {
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a onClick={handleMatch} class="nav-link" href="#">Matches</a>
+                    <Link className="nav-link" to="/matches">Matches</Link>
+                    {/* <a onClick={handleMatch} class="nav-link" href="#">Matches</a> */}
                 </li>
                 <li>
-                    <a onClick={handleTeam} class="nav-link" href="#">Team</a>
+                    <Link className="nav-link" to="/teams">Teams</Link>
+                    {/* <a onClick={handleTeam} class="nav-link" href="#">Team</a> */}
                 </li>
-                <li>
+                {/* <li>
                     <a onClick={handleTransfer} class="nav-link" href="#">Transfer</a>
-                </li>
+                </li> */}
                 <li>
-                    <a onClick={handleTable} class="nav-link" href="#">Table</a>
+                    {/* <a onClick={handleTable} class="nav-link" href="#">Table</a> */}
+                    <Link className="nav-link" to="/standings">Standings</Link>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

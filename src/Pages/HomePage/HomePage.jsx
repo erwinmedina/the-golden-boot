@@ -34,10 +34,6 @@ export default function Home() {
                 // Fetch matches
                 const matchesResponse = await fetch(`/api/matches?id=${id}&seasonID=${seasonID}`);
                 const matchesData = await matchesResponse.json();
-                // for (let i = 0; i < matchesData.matches.length; i++) {
-                //     matchesData.matches[i].homeTeam.homeTeamSearch = matchesData.matches[i].homeTeam.name.split(" ").join("_")
-                //     matchesData.matches[i].awayTeam.awayTeamSearch = matchesData.matches[i].awayTeam.name.split(" ").join("_")
-                // }
                 setAllMatches([matchesData]);
 
                 // Fetch standings
@@ -77,9 +73,9 @@ export default function Home() {
 
     return (
         <div>
-            <div className="sticky-top">
+            {/* <div className="sticky-top">
                 <Navbar setId={setId} setFilter={setFilter} setSeasonID={setSeasonID}/>
-            </div>
+            </div> */}
 
                 {filter === 'match' ?
                     <GetAllMatches 

@@ -1,8 +1,9 @@
 import "./GetStandings.css";
 import moment from "moment";
 
-export default function GetStandings({id, standings, setStandings, setMatchday, goalScorers}) {
+export default function GetStandings({standings, goalScorers}) {
     
+    console.log(goalScorers, standings);
     function getAge(string) {
         let value = string.split("-").join("");
         let age = moment(value, "YYYYMMDD").fromNow(true);
@@ -14,11 +15,11 @@ export default function GetStandings({id, standings, setStandings, setMatchday, 
             <div className="homePageStandingsContainer goalScorerStats">
                 <h2>Top 10 Goalscorers</h2>
                 <h3>
-                    {goalScorers[0].season.startDate.slice(0,5)}  
-                    {goalScorers[0].season.endDate.slice(0,4)} Season
+                    {goalScorers?.season?.startDate.slice(0,5)}  
+                    {goalScorers?.season?.endDate.slice(0,4)} Season
                 </h3>
                 <hr />
-                {goalScorers[0].scorers.length ? 
+                {goalScorers?.scorers?.length ? 
                     <div className="tableContainer table-responsive">
                         <table id="goalStandings" className="scoreStandings table table-striped table-hover table-sm ">
                             <thead>
@@ -28,20 +29,24 @@ export default function GetStandings({id, standings, setStandings, setMatchday, 
                                     <th scope="col">Age</th>
                                     <th scope="col">Country</th>
                                     <th scope="col">Club</th>
-                                    <th scope="col">Position</th>
-                                    <th scope="col">Goals</th>
+                                    <th scope="col">MP</th>
+                                    <th scope="col">G</th>
+                                    <th scope="col">A</th>
+                                    <th scope="col">Pen.</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {goalScorers[0].scorers.length && goalScorers[0].scorers.map((player, index) => 
+                                {goalScorers?.scorers.length && goalScorers?.scorers.map((player, index) => 
                                     <tr className="tableRow">
                                         <td>{index + 1}</td>
                                         <td className="">{player.player.name}</td>
                                         <td className="">{getAge(player.player.dateOfBirth)}</td>
                                         <td className="">{player.player.nationality}</td>
-                                        <td className="">{player.team.name}</td>
-                                        <td className="">{player.player.position}</td>
-                                        <td className="">{player.numberOfGoals}</td>
+                                        <td className="">{player.team.shortName}</td>
+                                        <td className="">{player.playedMatches}</td>
+                                        <td className="">{player.goals}</td>
+                                        <td className="">{player.assists ?? 0}</td>
+                                        <td className="">{player.penalties ?? 0}</td>
                                     </tr>
                                 )}
                             </tbody>
@@ -54,10 +59,10 @@ export default function GetStandings({id, standings, setStandings, setMatchday, 
                 }
             </div>
             <div className="homePageStandingsContainer tableStats">
-                <h2>{Object.keys(standings).length && standings.competition.name} Standings</h2>
+                <h2>{Object.keys(standings)?.length && standings?.competition.name} Standings</h2>
                 <h3>
-                    {Object.keys(standings).length && standings.season.startDate.slice(0,5)}  
-                    {Object.keys(standings).length && standings.season.endDate.slice(0,4)} Season
+                    {Object.keys(standings)?.length && standings?.season?.startDate?.slice(0,5)}  
+                    {Object.keys(standings)?.length && standings?.season?.endDate?.slice(0,4)} Season
                 </h3>
                 <hr />
                 <div className="tableContainer table-responsive">
