@@ -16,6 +16,7 @@ export default function TeamsPage({id, seasonID}) {
     useEffect(() => {
         async function fetchData() {
             try {
+                setLoading(true);
                 // Fetch team info
                 const teamsResponse = await fetch(`/api/teams?id=${id}&seasonID=${seasonID}`);
                 const teamsData = await teamsResponse.json();

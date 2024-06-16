@@ -10,14 +10,14 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
     const [wiki, setWiki] = useState([
         {
             name: "home",
-            wiki: "https://en.wikipedia.org/wiki/" + match.homeTeam.homeTeamSearch,
+            wiki: "https://en.wikipedia.org/wiki/" + match.homeTeam.name,
             active: false,
             dataTarget: "#homeTeam" + index,
             dataID: "homeTeam" + index,
         },
         {
             name: "away",
-            wiki: "https://en.wikipedia.org/wiki/" + match.awayTeam.awayTeamSearch,
+            wiki: "https://en.wikipedia.org/wiki/" + match.awayTeam.name,
             active: false,
             dataTarget: "#awayTeam" + index,
             dataID: "awayTeam" + index,
@@ -50,8 +50,8 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
 
         async function updateWiki() {
             let tempWiki = [...wiki];
-            let newHome = match.homeTeam.homeTeamSearch;
-            let newAway = match.awayTeam.awayTeamSearch;
+            let newHome = match.homeTeam.name;
+            let newAway = match.awayTeam.name;
             tempWiki[0].wiki = "https://en.wikipedia.org/wiki/" + newHome;
             tempWiki[1].wiki = "https://en.wikipedia.org/wiki/" + newAway;
             setWiki(tempWiki);

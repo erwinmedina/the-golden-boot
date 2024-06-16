@@ -17,7 +17,6 @@ export default function GetStandings({standings, goalScorers, comp}) {
     function AmericanDate_Fix(string) {
         let arrayOfString = string.split("-")
         var revisedString = arrayOfString[1] + "/" + arrayOfString[2] + "/" + arrayOfString[0];
-        console.log(revisedString);
         return revisedString;
     }
 
@@ -119,8 +118,8 @@ export default function GetStandings({standings, goalScorers, comp}) {
                             </table>
                         </div>
                         :
-                        <div>
-                            none
+                        <div className="emptyScorers">
+                            <MoonLoader color="#000000" />
                         </div>
                     }
                 </div>
