@@ -27,6 +27,7 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
     function handleWikiHome() {
         let tempWiki = [...wiki];
         if (tempWiki[1].active) {tempWiki[1].active = false}
+        
         if (tempWiki[0].active) {tempWiki[0].active = false}
         else {tempWiki[0].active = true}
         setWiki(tempWiki);
@@ -35,6 +36,7 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
     function handleWikiAway() {
         let tempWiki = [...wiki];
         if (tempWiki[0].active) {tempWiki[0].active = false}
+
         if (tempWiki[1].active) {tempWiki[1].active = false}
         else {tempWiki[1].active = true}
         setWiki(tempWiki);

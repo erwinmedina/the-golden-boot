@@ -1,6 +1,6 @@
 {
   "name": "thegoldenboot",
-  "homepage": "https://erwinmedina.github.io/the-golden-boot",
+  "homepage": "/",
   "version": "0.1.0",
   "main": "server/server.js",
   "proxy": "http://localhost:3001/",
