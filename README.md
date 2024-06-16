@@ -1,7 +1,7 @@
 # The Golden Boot
 
 ## Getting Started:
-- Currently working on finding a place to host this application. Please hold. Thank you.
+- Live demo of the project is here: [Vercel Link](https://the-golden-boot.vercel.app/)
 
 ## Application Description:
 The idea of The Golden Boot is to have easy access to top tier european soccer/football leagues. Interested in knowing who's leading the table in Germany, England, Spain? Boom. You want to know what the last matchday looked like ? Boom. You want to filter by your favorite team and see who they're playing next? Boom. 
