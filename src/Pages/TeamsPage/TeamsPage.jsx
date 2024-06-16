@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
 import GetTeamMatches from "../../Components/HomePage/GetTeamMatches";
+import { PulseLoader } from "react-spinners";
+import "./TeamsPage.css";
 
 export default function TeamsPage({id, seasonID}) {
-    const [allTeamInfo, setAllTeamInfo] = useState({})
+    const [loading, setLoading] = useState(true);
+    const [allTeamInfo, setAllTeamInfo] = useState({});
     const [teamArray, setTeamArray] = useState([]);
     const [allMatches, setAllMatches] = useState([]);
     const [matchday, setMatchday] = useState();
@@ -10,7 +13,6 @@ export default function TeamsPage({id, seasonID}) {
     const [filteredMatches, setFilteredMatches] = useState([]);
     const [team, setTeam] = useState();
     
-
     useEffect(() => {
         async function fetchData() {
             try {
@@ -26,6 +28,8 @@ export default function TeamsPage({id, seasonID}) {
 
             } catch (error) {
                 console.error('Error fetching data:', error);
+            } finally {
+                setLoading(false);
             }
         }
         fetchData();
@@ -35,7 +39,7 @@ export default function TeamsPage({id, seasonID}) {
         async function allTeamNames() {
             try {
                 const allTeams = allTeamInfo;
-                allTeams.teams.sort((a, b) => a.shortName > b.shortName ? 1 : -1);
+                allTeams?.teams?.sort((a, b) => a.shortName > b.shortName ? 1 : -1);
                 setTeamArray(allTeams.teams);
                 setTeam(allTeams.teams[0].name);
                 setNumOfMatchesArray([]);
@@ -50,10 +54,18 @@ export default function TeamsPage({id, seasonID}) {
         allTeamNames();
     }, [allTeamInfo]);
 
+    if (loading) {
+        return (
+            <div className="loader">
+                <PulseLoader color="#FFFFFF" />
+            </div>
+        )
+    }
     return (
         <div>
             <GetTeamMatches
                 id={id}
+                seasonID={seasonID}
                 teamArray={teamArray}
                 allMatches={allMatches}
                 filteredMatches={filteredMatches}

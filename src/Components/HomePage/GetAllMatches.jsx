@@ -4,7 +4,7 @@ import MatchesCard from "./MatchesCard";
 import { useEffect } from "react"
 
 
-export default function GetAllMatches({id, setSeasonID, teamArray, allMatches, matchday, setMatchday, filteredMatches, setFilteredMatches, numOfMatchesArray, filter}) {
+export default function GetAllMatches({id, seasonID, teamArray, allMatches, matchday, setMatchday, filteredMatches, setFilteredMatches, numOfMatchesArray, filter}) {
 
     function handleMatchday(event) {
         setMatchday(event.target.value);
@@ -28,6 +28,9 @@ export default function GetAllMatches({id, setSeasonID, teamArray, allMatches, m
             <h1 className="seasonTitle">
                 {allMatches.length >= 1 && allMatches[0].competition.name}
             </h1>
+            <h2 className="seasonYears">
+                Season {seasonID} - {seasonID+1}
+            </h2>
             <div className="selectOption">
                 <select className="form-select" onChange={handleMatchday} name="matchdays" id="matchdays">
                     {numOfMatchesArray.length && numOfMatchesArray.map(number =>

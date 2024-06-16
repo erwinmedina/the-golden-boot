@@ -3,8 +3,7 @@ import MatchesCard from "./MatchesCard";
 import "./GetAllMatches.css"
 import "./GetTeamMatches.css"
 
-
-export default function GetTeamMatches({id, teamArray, allMatches, setAllMatches, filteredMatches, setFilteredMatches, team, setTeam, matchday, filter}) {
+export default function GetTeamMatches({id, seasonID, teamArray, allMatches, filteredMatches, setFilteredMatches, team, setTeam, matchday, filter}) {
     
     useEffect(function() {
         async function filterMatchTeams() {
@@ -37,6 +36,9 @@ export default function GetTeamMatches({id, teamArray, allMatches, setAllMatches
             <h1 className="seasonTitle">
                 {allMatches.length >= 1 && allMatches[0].competition.name}
             </h1>
+            <h2 className="seasonYears">
+                Season {seasonID} - {seasonID+1}
+            </h2>
             <div className="selectOption">
                 <select className="form-select" onChange={handleTeam} name="team" id="team">
                     {teamArray && teamArray.map(team =>

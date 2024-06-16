@@ -7,10 +7,11 @@
 }
 
 .homePageStandings {
-    margin: 2em auto 0 auto;
+    /* margin: 2em auto 0 auto; */
     align-items: flex-start;
     justify-content: flex-start;
     vertical-align: text-top;
+    width: 100%;
 }
 .homePageStandingsContainer > h2, h3 {
     color: white;
@@ -22,6 +23,10 @@
 
 .scoreStandings > tbody > tr > td {
     padding: 5px;
+}
+
+.tableCSS {
+    text-align: center;
 }
 
 #tableStandings {
@@ -100,12 +105,16 @@ tbody tr:last-child td {
     font-family: "Sriracha";
     border-radius: 20px;
 }
+.goalScorerStats {
+    width: 70%;
+    /* height: 533px; */
+}
 
 .goalScorerStats > div {
     margin: 20px auto;
-    padding: 10px;
+    padding: 5px;
     background: lightgray;
-    border-radius: 30px;
+    border-radius: 20px;
     width: 90%;
 }
 .tableStats {
@@ -126,18 +135,80 @@ hr {
     border-radius: 20px;
     background: white;
 }
-
-
+.previousWinners {
+    width: 50%;
+    height: 350px;
+}
+#goalScorersAndWinners {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content:flex-start;
+}
+.firstHeaderRow{
+    border-top-left-radius: 20px;
+}
+.lastHeaderRow{
+    border-top-right-radius: 20px;
+}
+.previousWinnersTable {
+    background: white;
+    border-radius: 20px;
+    height: 100%;
+    padding: 5px;
+    border-spacing: 0 50px;
+}
+.table {
+    margin-bottom: 0.2rem;
+}
+.winnerTableValue {
+    display: flex;
+}
+.previousWinnerCrestDiv {
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+.previousWinnerCrest {
+    margin: 0 auto;
+    height: 30px;
+    width: 30px;
+}
+.previousWinnerTextDiv {
+    width: 100%;
+    display: flex;
+    margin: 0 0 0 5px;
+}
+.previousWinnerText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 60%;
+}
 
 @media screen and (max-width: 1700px) {
     .homePageStandings {
         margin: 2em auto 0 auto;
     }
 }
+@media screen and (max-width: 1200px) {
+    .previousWinners {
+        width: 100%;
+    }
+    .goalScorerStats {
+        width: 100%;
+    }
+    #goalScorersAndWinners {
+        flex-direction: column;
+        height: 1050px;
+    }
+}
 
 @media screen and (max-width: 992px) {
     .homePageStandings {
         flex-direction: column;
+        max-width: 100%;
     }
 }
 @media screen and (max-width: 767px) {
@@ -146,6 +217,28 @@ hr {
     }
     .goalScorerStats > div {
         width: 100%;
+    }
+    .winnerTableValue {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    .previousWinnersTable {
+        width: 70%;
+        margin: 0 auto;
+    }
+    .previousWinnersTable > table {
+        font-size: 13px;
+    }
+    #goalStandings {
+        font-size: 13px;
+    }
+    #tableStandings {
+        font-size: 13px;
+    }
+    .teamImg > img {
+        width: 20px;
+        height: 20px;
     }
 }
 

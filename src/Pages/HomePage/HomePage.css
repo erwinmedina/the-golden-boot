@@ -1,9 +1,107 @@
-.combined {
+.HomePage {
+    width: 100%;
+}
+.HomePageMain {
     display: flex;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.HomePageMain img {
+    max-width: 100%;
+    object-fit: cover;
+}
+.HomePageMainText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.3);
+    border-radius: 50px;
+}
+.HomePageMainText h3 {
+    font-family: "VT323";
+    font-size: 80px;
+    text-shadow: 5px 5px 3px #000000;
 }
 
-@media screen and (max-width:1700px) {
-    .combined {
-        flex-direction: column;
+.features {
+    margin: 50px auto;
+    height: 100%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 10px;
+    padding-left: 0;
+}
+.coverage {
+    height: 460px;
+    width: 100%;;
+    margin: 20px auto;
+}
+.card-img-top {
+    height: 178px;
+    object-fit: cover;
+}
+.card-title {
+    font-family: "VT323";
+    text-align: left;
+    font-size: 30px;
+    transition: 1s;
+}
+.coverage:hover .card-title {
+    color: gold;
+}
+.card-text {
+    font-family: "sriracha";
+    text-align: left;
+    height: 50%;
+    overflow: auto;
+}
+.leagueCoverage {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+}
+.cardButton {
+
+    /* width: 200px; */
+}
+.arrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+@media screen and (max-width: 1200px) {
+    .features {
+        width: 70%;
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+}
+@media screen and (max-width: 1280px) {
+    .HomePageMainText h3 {
+        font-size: 40px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .features {
+        grid-template-columns: repeat(1,minmax(0,1fr));
+    }
+}
+@media screen and (max-width: 767px) {
+    .HomePageMainText {
+        border-radius: 20px;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .HomePageMainText h3 {
+        font-size: 30px;
     }
 }

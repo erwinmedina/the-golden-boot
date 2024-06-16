@@ -1,7 +1,9 @@
 import GetAllMatches from "../../Components/HomePage/GetAllMatches";
 import { useEffect, useState } from "react"
+import { PulseLoader } from "react-spinners";
 
 export default function MatchesPage({id, seasonID}) {
+    const [loading, setLoading] = useState(true);
     const [allTeamInfo, setAllTeamInfo] = useState({})
     const [teamArray, setTeamArray] = useState([]);
     const [allMatches, setAllMatches] = useState([]);
@@ -12,6 +14,7 @@ export default function MatchesPage({id, seasonID}) {
     useEffect(() => {
         async function fetchData() {
             try {
+                setLoading(true);
                 // Fetch team info
                 const teamsResponse = await fetch(`/api/teams?id=${id}&seasonID=${seasonID}`);
                 const teamsData = await teamsResponse.json();
@@ -23,6 +26,8 @@ export default function MatchesPage({id, seasonID}) {
                 setAllMatches([matchesData]);
             } catch (error) {
                 console.error('Error fetching data:', error);
+            } finally {
+                setLoading(false);
             }
         }
         fetchData();
@@ -32,9 +37,8 @@ export default function MatchesPage({id, seasonID}) {
         async function allTeamNames() {
             try {
                 const allTeams = allTeamInfo;
-                allTeams.teams.sort((a, b) => a.shortName > b.shortName ? 1 : -1);
+                allTeams?.teams?.sort((a, b) => a.shortName > b.shortName ? 1 : -1);
                 setTeamArray(allTeams.teams);
-                // setTeam(allTeams.teams[0].name);
                 setNumOfMatchesArray([]);
                 setMatchday(allTeams.season.currentMatchday);
                 for (let i = 1; i <= allTeams.count * 2 - 2; i++) {
@@ -47,10 +51,19 @@ export default function MatchesPage({id, seasonID}) {
         allTeamNames();
     }, [allTeamInfo]);
 
+    if (loading) {
+        return (
+            <div className="loader">
+                <PulseLoader color="#FFFFFF" />
+            </div>
+        )
+    }
+
     return (
         <div>
             <GetAllMatches 
                 id={id} 
+                seasonID={seasonID}
                 teamArray={teamArray}
                 allMatches={allMatches} 
                 setAllMatches={setAllMatches}

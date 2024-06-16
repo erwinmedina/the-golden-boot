@@ -30,8 +30,9 @@
     width: 60%;
     border: 2px rgba(0,0,0,.5) solid;
     background: white;
-    box-shadow: 5px 5px #000000;
+    box-shadow: 5px 5px 15px #000000;
     border-radius: 10px;
+    transition: 1s;
 }
 
 .cardContainer > div:last-child{
@@ -44,7 +45,8 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
-    background: rgba(0,0,0,.2);
+    background: rgba(0,0,0,.8);
+    border-radius: 8px 8px 0 0;
 }
 
 .botMatchCard {
@@ -61,7 +63,7 @@
 }
 
 .matchesCardContainer:hover {
-    transition: 1s;
+    
     transform: scale(1.05);
 }
 
@@ -106,7 +108,7 @@
     font-weight: normal;
     /* font-style: italic; */
     font-family: "Sriracha";
-    color: black;
+    color: white;
 }
 
 .halfTime {
@@ -129,7 +131,7 @@
     /* padding: 10px; */
     border-radius: 10px;
     margin: 10px 0;
-    border: 5px rgba(0,0,0,.2) solid;
+    border: 3px rgba(0,0,0,1) solid;
     background: rgba(255,255,255,.9);
 }
 

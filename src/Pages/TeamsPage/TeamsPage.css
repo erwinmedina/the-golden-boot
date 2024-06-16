@@ -1,0 +1,12 @@
+.loader {
+    flex: 1;
+    height: 100%;
+}
+.loader span {
+    height: 90vh;
+    margin: 0 auto;
+    vertical-align: middle;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}

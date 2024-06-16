@@ -73,10 +73,10 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
             <div className="ExpandCard">
                 <div className="ExpandCardLeft btn-group-vertical">
                     <div>
-                        <button className="btnArena btn btn-primary" onClick={handleWikiHome} data-toggle="collapse" data-target={wiki[0].dataTarget}>Wiki <br/>{match.homeTeam.name}</button>
+                        <button className="btnArena btn btn-dark" onClick={handleWikiHome} data-toggle="collapse" data-target={wiki[0].dataTarget}>Wiki <br/>{match.homeTeam.name}</button>
                     </div>
                     <div>
-                        <button className="btnArena btn btn-primary" onClick={handleWikiAway} data-toggle="collapse" data-target={wiki[1].dataTarget}>Wiki <br/>{match.awayTeam.name}</button>
+                        <button className="btnArena btn btn-dark" onClick={handleWikiAway} data-toggle="collapse" data-target={wiki[1].dataTarget}>Wiki <br/>{match.awayTeam.name}</button>
                     </div>
                 </div>
 

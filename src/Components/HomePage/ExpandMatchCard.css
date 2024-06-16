@@ -1,21 +1,31 @@
 .ExpandCard {
     display: flex;
+    background: transparent;
+    box-shadow: 10px 10px 10px #000000;
 }
 
 .ExpandCardLeft {
     width: 200px;
-    background: lightgray;
+    background: #318CE7;
+    box-shadow: 5px 0px 5px #888888;
+    border-radius: 6px 0 0 6px;
     padding: 15px;
 }
 .ExpandCardRight {
     padding: 5px 5px 5px 15px;
+    background: white;
     width: 100%;
     text-align: left;
+    border-radius: 7px;
+}
+.ExpandCardRight table {
+    color: black;
 }
 .btnArena {
     width: 150px;
-    margin: 1px 0;
+    margin: 5px 0;
     font-size: .8em;
+    box-shadow: 3px 3px 4px rgba(0,0,0,.65);
 }
 
 iframe {
@@ -33,5 +43,7 @@ iframe {
     .ExpandCardLeft {
         width: 100%;
         align-items: center;
+        box-shadow: 0px -5px 6px #888888;
+        border-radius: 0 0 6px 6px;
     }
 }

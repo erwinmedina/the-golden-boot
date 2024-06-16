@@ -1,4 +1,4 @@
-import Home from '../HomePage/HomePage';
+import HomePage from '../HomePage/HomePage';
 import { Route, Routes, Redirect } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './App.css';
@@ -33,7 +33,7 @@ export default function App() {
                 seasonID={seasonID}
                 />} 
             />
-            <Route path="/" element={<Home/>} />
+            <Route path="/" element={<HomePage/>} />
           </Routes>
         </div>
   );

@@ -1,130 +1,70 @@
-import GetAllMatches from "../../Components/HomePage/GetAllMatches"
-import GetTeamMatches from "../../Components/HomePage/GetTeamMatches";
-import GetStandings from "../../Components/HomePage/GetStandings";
-import Navbar from "../../Components/Navbar/Navbar";
+import { Link } from 'react-router-dom';
 import "./HomePage.css";
-// import { getTeams } from "controllers/teamsController";
 
-import { useEffect, useState } from "react"
-import TransferMarket from "../../Components/HomePage/TransferMarket";
 
-export default function Home() {
-    const [filter, setFilter] = useState('match');
-    const [allTeamInfo, setAllTeamInfo] = useState({})
-    const [teamArray, setTeamArray] = useState([]);
-    const [filteredMatches, setFilteredMatches] = useState([])
-    const [allMatches, setAllMatches] = useState([]);
-    const [matchday, setMatchday] = useState();
-    const [numOfMatchesArray, setNumOfMatchesArray] = useState([]);
-    const [team, setTeam] = useState();
-    const [standings, setStandings] = useState({});
-    const [goalScorers, setGoalScorers] = useState([]);
-    const [id, setId] = useState(2021);
-    const [seasonID, setSeasonID] = useState(2023);
-    // const [playerInfo, setPlayerInfo] = useState([])
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                // Fetch team info
-                const teamsResponse = await fetch(`/api/teams?id=${id}&seasonID=${seasonID}`);
-                const teamsData = await teamsResponse.json();
-                setAllTeamInfo(teamsData);
-
-                // Fetch matches
-                const matchesResponse = await fetch(`/api/matches?id=${id}&seasonID=${seasonID}`);
-                const matchesData = await matchesResponse.json();
-                setAllMatches([matchesData]);
-
-                // Fetch standings
-                const standingsResponse = await fetch(`/api/standings?id=${id}&seasonID=${seasonID}`);
-                const standingsData = await standingsResponse.json();
-                setStandings(standingsData);
-
-                // Fetch goal scorers
-                const scorersResponse = await fetch(`/api/scorers?id=${id}&seasonID=${seasonID}`);
-                const scorersData = await scorersResponse.json();
-                setGoalScorers([scorersData]);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        }
-        fetchData();
-    }, [id, seasonID]);
-
-    useEffect(() => {
-        async function allTeamNames() {
-            try {
-                const allTeams = allTeamInfo;
-                allTeams.teams.sort((a, b) => a.shortName > b.shortName ? 1 : -1);
-                setTeamArray(allTeams.teams);
-                setTeam(allTeams.teams[0].name);
-                setNumOfMatchesArray([]);
-                setMatchday(allTeams.season.currentMatchday);
-                for (let i = 1; i <= allTeams.count * 2 - 2; i++) {
-                    setNumOfMatchesArray(numOfMatchesArray => [...numOfMatchesArray, i]);
-                }
-            } catch (error) {
-                console.error('Error processing team names:', error);
-            }
-        }
-        allTeamNames();
-    }, [allTeamInfo]);
-
+export default function HomePage() {
     return (
-        <div>
-            {/* <div className="sticky-top">
-                <Navbar setId={setId} setFilter={setFilter} setSeasonID={setSeasonID}/>
-            </div> */}
-
-                {filter === 'match' ?
-                    <GetAllMatches 
-                    id={id} 
-                    setSeasonID={setSeasonID}
-                    teamArray={teamArray}
-                    allMatches={allMatches} 
-                    setAllMatches={setAllMatches}
-                    matchday={matchday}
-                    setMatchday={setMatchday}
-                    filteredMatches={filteredMatches}
-                    setFilteredMatches={setFilteredMatches}
-                    numOfMatchesArray={numOfMatchesArray}
-                    filter={filter}
-                    /> 
-                    :
-                    ""
-                }
-                {filter === 'team' ? 
-                    <GetTeamMatches
-                    id={id}
-                    teamArray={teamArray}
-                    allMatches={allMatches}
-                    setAllMatches={setAllMatches}
-                    filteredMatches={filteredMatches}
-                    setFilteredMatches={setFilteredMatches}
-                    team={team}
-                    setTeam={setTeam}
-                    matchday={matchday}
-                    filter={filter}
-                    />
-                    :
-                    ""
-                }
-                {filter === 'table' ? 
-                    <GetStandings 
-                        id={id} 
-                        standings={standings} 
-                        setStandings={setStandings}
-                        setMatchday={setMatchday}
-                        goalScorers={goalScorers}
-                    />
-                    :
-                    ""
-                }
-                {filter === "transfer" ?
-                    <TransferMarket/>:""
-                }
-                
+        <div className="HomePage">
+            <div className="HomePageMain">
+                <img src="https://i.imgur.com/vMIlJl0.jpeg" alt="" />
+                <div className="HomePageMainText">
+                    <h3>An easier way to stay up-to-date with the latest games in your favorite soccer leagues</h3>
+                </div>
+            </div>
+            <div className="features">
+                <div className="card coverage">
+                    <img className="card-img-top" src="https://i.imgur.com/ijVcQYQ.jpeg" alt="" />
+                    <div className="card-body coverageDetails">
+                        <p className="card-title">Matches</p>
+                        <p className="card-text"> Here you can filter by matchday, allowing you quickly see the teams you're going up against or check out previous games and see how you did.</p>
+                        <Link className="cardButton btn btn-primary" to="/matches">Check it out <i className="arrow right"></i></Link>
+                    </div>
+                </div>
+                <div className="card coverage">
+                    <img className="card-img-top" src="https://i.imgur.com/fUgLxtB.jpeg" alt="" />
+                    <div className="card-body coverageDetails">
+                        <p className="card-title">Teams</p>
+                        <p className="card-text"> This is the place to filter by your favorite team and see all upcoming (and previous) matches for that specific team!</p>
+                        <Link className="cardButton btn btn-primary" to="/teams">Check it out <i className="arrow right"></i></Link>
+                    </div>
+                </div>
+                <div className="card coverage">
+                    <img className="card-img-top" src="https://i.imgur.com/3JUdZ2X.jpeg" alt="" />
+                    <div className="card-body coverageDetails">
+                        <p className="card-title">Standings</p>
+                        <p className="card-text"> Want to see how your team is performing (or has performed)? Check out the standings and where they are in the table. Also check out who's leading the goal scoring!</p>
+                        <Link className="cardButton btn btn-primary" to="/standings">Check it out <i className="arrow right"></i></Link>
+                    </div>
+                </div>
+                <div className="card coverage">
+                    <img className="card-img-top" src="https://i.imgur.com/HwoYFNe.jpeg" alt="" />
+                    <div className="card-body coverageDetails">
+                        <p className="card-title">League Coverage</p>
+                        <div className="leagueCoverage card-text">
+                            <div>Premier League 🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+                            <div>La Liga 🇪🇸</div>
+                            <div>Championship 🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+                            <div>Bundesliga 🇩🇪</div>
+                            <div>Serie A 🇮🇹</div>
+                            <div>Ligue 1 🇫🇷</div>
+                            <div>Premeira Liga 🇵🇹</div>
+                        </div>
+                    </div>
+                </div>
+                <div className="card coverage">
+                    <img className="card-img-top" src="https://i.imgur.com/i7hbeMI.jpeg" alt="" />
+                    <div className="card-body coverageDetails">
+                        <p className="card-title">Features</p>
+                        <p className="card-text">
+                            <div>- Filter for match days</div>
+                            <div>- Filter for your favorite teams</div>
+                            <div>- Check out team standings</div>
+                            <div>- See leading goal scorers</div>
+                            <div>- Adjust the season year</div>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

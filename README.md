@@ -26,11 +26,18 @@ The Golden Boot is a revised version of FootballDeets, an earlier verison of thi
 ## Technology Used:
 - Javascript
 - ReactJS
+- Express
+- Redis Caching
 - API [Football-Data.Org]
 - HTML/CSS/Bootstrap
 
 ## Icebox Items:
+- Find a new hosting website.
 - Add additional sorting options for Matches and Team pages.
-- Adjust API call to display correct info on Table Standings when clicking different seasons.
 - Add additional functionality that would retain users for longer periods of time.
 - Add a map of where each stadium is located.
+
+## Completed Tasks
+- Implemented Redis Caching to reduce API strain.
+- Utilized Express to make API calls from the backend, instead of front end. Avoiding COR issues.
+- Adjust API call to display correct info on Table Standings when clicking different seasons.
