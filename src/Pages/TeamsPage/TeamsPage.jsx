@@ -41,11 +41,11 @@ export default function TeamsPage({id, seasonID}) {
             try {
                 const allTeams = allTeamInfo;
                 allTeams?.teams?.sort((a, b) => a.shortName > b.shortName ? 1 : -1);
-                setTeamArray(allTeams.teams);
-                setTeam(allTeams.teams[0].name);
+                setTeamArray(allTeams?.teams);
+                setTeam(allTeams?.teams[0].name);
                 setNumOfMatchesArray([]);
-                setMatchday(allTeams.season.currentMatchday);
-                for (let i = 1; i <= allTeams.count * 2 - 2; i++) {
+                setMatchday(allTeams?.season.currentMatchday);
+                for (let i = 1; i <= allTeams?.count * 2 - 2; i++) {
                     setNumOfMatchesArray(numOfMatchesArray => [...numOfMatchesArray, i]);
                 }
             } catch (error) {
