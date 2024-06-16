@@ -10,6 +10,9 @@ The Golden Boot is the name of the award, awarded to the leading goalscorer for 
 
 The Golden Boot is a revised version of FootballDeets, an earlier verison of this project designed by me. Utilizing the same API, I've designed The Golden Boot with a bit more functionality. Within the pre-design work, I kept mobile friendly in the forefront - ensuring that this project would not simply be a computer only design but also available on mobile.
 
+## What This Application Solves:
+Sometimes when I'm looking for quick information like which games are coming up (or past games) for a specific team (such as Liverpool), this application comes in handy. Another use case is when I forget what the French league name is (or any other league) and I quickly want to see who's leading that table or what the top 10 goal scorers are.. I can also use this application! It's somewhat easier to use than googling "French league top 10 goal scorers" just to be met with a result that doesn't provide that exact information. I wanted to create an application that eases confusion and just simplifies the process! I hope this helps you as much as it helps me :)
+
 <br>
 
 | Page | Image |
