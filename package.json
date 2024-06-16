@@ -34,9 +34,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "nodemon server/server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "server": "node server/server.js",
+    "dev": "concurrently \"npm run server\" \"npm start\"",
+    "server": "nodemon server/server.js",
     "client": "react-scripts start"
   },
   "eslintConfig": {
