@@ -23,23 +23,11 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
             dataID: "awayTeam" + index,
         }
     ])
-
-    function handleWikiHome() {
-        let tempWiki = [...wiki];
-        if (tempWiki[1].active) {tempWiki[1].active = false}
-        
-        if (tempWiki[0].active) {tempWiki[0].active = false}
-        else {tempWiki[0].active = true}
-        setWiki(tempWiki);
-    }
-
-    function handleWikiAway() {
-        let tempWiki = [...wiki];
-        if (tempWiki[0].active) {tempWiki[0].active = false}
-
-        if (tempWiki[1].active) {tempWiki[1].active = false}
-        else {tempWiki[1].active = true}
-        setWiki(tempWiki);
+    function handleWikiClick(index) {
+        setWiki(prevWiki =>
+            prevWiki.map((item, idx) => 
+                idx === index ? { ...item, active: !item.active } : { ...item, active: false } 
+        ))
     }
 
     useEffect(function() {
@@ -50,35 +38,43 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
             setTime(dateArray[1]);
         } getDate();
 
-        async function updateWiki() {
-            let tempWiki = [...wiki];
-            let newHome = match.homeTeam.name;
-            let newAway = match.awayTeam.name;
-            tempWiki[0].wiki = "https://en.wikipedia.org/wiki/" + newHome;
-            tempWiki[1].wiki = "https://en.wikipedia.org/wiki/" + newAway;
-            setWiki(tempWiki);
-        } updateWiki();
+        function updateWiki() {
+            setWiki(prevWiki => [
+                {
+                    ...prevWiki[0],
+                    wiki: "https://en.wikipedia.org/wiki/" + match.homeTeam.name
+                },
+                {
+                    ...prevWiki[1],
+                    wiki: "https://en.wikipedia.org/wiki/" + match.awayTeam.name
+                },
 
+            ])
+        }
+        updateWiki();
 
         async function stadiumName() {
-            for (let i = 0; i < teamArray.length; i++) {
-                if (match.homeTeam.id === teamArray[i].id) {
-                    return (setStadium(teamArray[i].venue));
-                }
+            const team = teamArray.find(team => team.id === match.homeTeam.id);
+            if (team) {
+                setStadium(team.venue);
             }
         } stadiumName();
 
-    }, [match, filter])
+    }, [match, filter, teamArray])
 
     return(
         <div>
             <div className="ExpandCard">
                 <div className="ExpandCardLeft btn-group-vertical">
                     <div>
-                        <button className="btnArena btn btn-dark" onClick={handleWikiHome} data-toggle="collapse" data-target={wiki[0].dataTarget}>Wiki <br/>{match.homeTeam.name}</button>
+                        <button className="btnArena btn btn-dark" onClick={() => handleWikiClick(0)} data-toggle="collapse" data-target={wiki[0].dataTarget}>
+                            Wiki <br/>{match.homeTeam.name}
+                        </button>
                     </div>
                     <div>
-                        <button className="btnArena btn btn-dark" onClick={handleWikiAway} data-toggle="collapse" data-target={wiki[1].dataTarget}>Wiki <br/>{match.awayTeam.name}</button>
+                        <button className="btnArena btn btn-dark" onClick={() => handleWikiClick(1)} data-toggle="collapse" data-target={wiki[1].dataTarget}>
+                            Wiki <br/>{match.awayTeam.name}
+                        </button>
                     </div>
                 </div>
 
@@ -107,19 +103,16 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
             </div>
 
             <div className="page" id="accordion">
-                <div class="stadiumMapShow collapse" data-parent="#accordion" id={wiki[0].dataID}>
-                    <div class="embed-responsive embed-responsive-1by1">
-                        <iframe class="embed-responsive-item" src={wiki[0].wiki} allowfullscreen></iframe>
+                {wiki.map((item, index) => (
+                    <div class="stadiumMapShow collapse" data-parent="#accordion" id={item.dataID} key={index}>
+                        {item.active && (
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <iframe key={item.dataID + item.active} class="embed-responsive-item" src={item.wiki} allowfullscreen></iframe>
+                            </div>
+                        )}
                     </div>
-                </div>
-                <div class="stadiumMapShow collapse" data-parent="#accordion" id={wiki[1].dataID}>
-                    <div class="embed-responsive embed-responsive-1by1">
-                        <iframe class="embed-responsive-item" src={wiki[1].wiki} allowfullscreen></iframe>
-                    </div>
-                </div>
+                ))}
             </div>
-
-            
         </div>
     )
 }
