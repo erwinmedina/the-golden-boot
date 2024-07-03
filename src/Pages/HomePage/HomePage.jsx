@@ -17,7 +17,9 @@ export default function HomePage() {
                     <div className="card-body coverageDetails">
                         <p className="card-title">Matches</p>
                         <p className="card-text"> Here you can filter by matchday, allowing you quickly see the teams you're going up against or check out previous games and see how you did.</p>
-                        <Link className="cardButton btn btn-primary" to="/matches">Check it out <i className="arrow right"></i></Link>
+                        <div className="coverageDetailsButton">
+                            <Link className="cardButton btn btn-primary" to="/matches">Check it out <i className="arrow right"></i></Link>
+                        </div>
                     </div>
                 </div>
                 <div className="card coverage">

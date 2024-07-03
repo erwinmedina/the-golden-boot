@@ -48,6 +48,7 @@
     text-align: left;
     font-size: 30px;
     transition: 1s;
+    height: 15%;
 }
 .coverage:hover .card-title {
     color: gold;
@@ -62,9 +63,8 @@
     display: grid;
     grid-template-columns: repeat(2,minmax(0,1fr));
 }
-.cardButton {
-
-    /* width: 200px; */
+.coverageDetails {
+    height: 280px;
 }
 .arrow {
     border: solid white;
@@ -103,5 +103,10 @@
 @media screen and (max-width: 590px) {
     .HomePageMainText h3 {
         font-size: 30px;
+    }
+}
+@media screen and (max-width: 430px) {
+    .HomePageMainText h3 {
+        font-size: 20px;
     }
 }
