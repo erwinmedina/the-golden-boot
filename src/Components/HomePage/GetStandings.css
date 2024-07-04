@@ -7,7 +7,6 @@
 }
 
 .homePageStandings {
-    /* margin: 2em auto 0 auto; */
     align-items: flex-start;
     justify-content: flex-start;
     vertical-align: text-top;
@@ -33,29 +32,38 @@
     align-items: center;
     margin: 0 auto;
     width: 100%;
-    background: rgba(255,255,255,1);
-    border-radius: 20px;
-    border-spacing: 0 50px;
+    /* border: 2px solid #ffcc00; */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
+
 #tableStandings > thead > tr > th:first-of-type {
-    border-top-left-radius: 20px;
+    border-top-left-radius: 10px;
 }
 #tableStandings > thead > tr > th:last-of-type {
-    border-top-right-radius: 20px;
+    border-top-right-radius: 10px;
 }
 #goalStandings {
     align-items: center;
     margin: 0 auto;
     width: 100%;
-    background: rgba(255,255,255,1);
-    border-radius: 20px;
-    border-spacing: 0 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,1);
+    overflow: hidden;
 }
+
 #goalStandings > thead > tr > th:first-of-type {
-    border-top-left-radius: 20px;
+    border-top-left-radius: 10px;
 }
 #goalStandings > thead > tr > th:last-of-type {
-    border-top-right-radius: 20px;
+    border-top-right-radius: 10px;
+}
+#goalStandings > tbody > tr:last-child > td:first-of-type {
+    border-bottom-left-radius: 10px;
+}
+#goalStandings > tbody > tr:last-child > td:last-of-type {
+    border-bottom-right-radius: 10px;
 }
 
 .tableRow {
@@ -66,9 +74,6 @@
 }
 .teamStats {
     width: 50px;
-}
-thead {
-    background: skyblue;
 }
 
 .tableContainer {
@@ -81,7 +86,6 @@ thead > tr {
 
 thead > tr > th:first-child {
     padding: 10px;
-
 }
 
 thead > tr > th:last-child {
@@ -111,9 +115,9 @@ tbody tr:last-child td {
 
 .goalScorerStats > div {
     margin: 20px auto;
-    padding: 5px;
-    background: lightgray;
-    border-radius: 20px;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,1);
     width: 90%;
 }
 .tableStats {
@@ -121,17 +125,18 @@ tbody tr:last-child td {
 }
 .tableStats > div {
     margin: 0 auto 40px auto;
-    padding: 10px;
-    background: lightgray;
-    border-radius: 30px;
     width: 70%;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 hr {
     border: none;
     height: 3px;
     width: 80%;
     margin: 20px auto;
-    border-radius: 20px;
+    border-radius: 10px;
     background: white;
 }
 .previousWinners {
@@ -144,17 +149,16 @@ hr {
     justify-content:flex-start;
 }
 .firstHeaderRow{
-    border-top-left-radius: 20px;
+    border-top-left-radius: 10px;
 }
 .lastHeaderRow{
-    border-top-right-radius: 20px;
+    border-top-right-radius: 10px;
 }
 .previousWinnersTable {
-    background: white;
-    border-radius: 20px;
     max-height: 350px;
-    padding: 5px;
-    border-spacing: 0 50px;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,1);
 }
 .table {
     margin-bottom: 0.2rem;
@@ -185,6 +189,14 @@ hr {
     text-align: center;
     margin: 0;
     width: 100%;
+}
+.nationalityPlayer {
+    display: flex;
+    align-items: center;
+}
+.header {
+    position: sticky;
+    top: 0;
 }
 
 @media screen and (max-width: 1700px) {

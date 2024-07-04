@@ -2,6 +2,7 @@ import "./GetStandings.css";
 import moment from "moment";
 import { useEffect, useState} from "react";
 import { MoonLoader } from "react-spinners";
+import NationalityFlag from "../Flags/Flags";
 
 export default function GetStandings({standings, goalScorers, comp}) {
 
@@ -46,13 +47,12 @@ export default function GetStandings({standings, goalScorers, comp}) {
                     <hr />
                     {goalScorers?.scorers?.length ? 
                         <div className="tableContainer table-responsive">
-                            <table id="goalStandings" className="scoreStandings table table-striped table-hover table-sm ">
+                            <table id="goalStandings" className="scoreStandings table table-dark table-striped table-hover table-sm ">
                                 <thead>
                                     <tr>
-                                        <th className="tableCSS" scope="col">#</th>
-                                        <th scope="col">Name</th>
+                                        <th className="" scope="col"></th>
+                                        <th scope="col"></th>
                                         <th className="tableCSS" scope="col">Age</th>
-                                        <th scope="col">Nationality</th>
                                         <th scope="col">Club</th>
                                         <th className="tableCSS" scope="col">MP</th>
                                         <th className="tableCSS" scope="col">G</th>
@@ -65,9 +65,9 @@ export default function GetStandings({standings, goalScorers, comp}) {
                                     {goalScorers?.scorers.length && goalScorers?.scorers.map((player, index) => 
                                         <tr className="tableRow">
                                             <td className="tableCSS">{index + 1}</td>
-                                            <td className="">{player.player.name}</td>
+                                            <td className="nationalityPlayer"><NationalityFlag country={player.player.nationality}/> {player.player.name}</td>
                                             <td className="tableCSS">{getAge(player.player.dateOfBirth)}</td>
-                                            <td className="">{player.player.nationality}</td>
+                                            {console.log(player.player.nationality)}
                                             <td className="">{player.team.shortName}</td>
                                             <td className="tableCSS">{player.playedMatches}</td>
                                             <td className="tableCSS">{player.goals}</td>
@@ -96,12 +96,12 @@ export default function GetStandings({standings, goalScorers, comp}) {
                     <hr />
                     {filterComp?.length ?
                         <div className="previousWinnersTable tableContainer table-responsive">
-                            <table className="table table-hover table-striped table-sm">
-                                <thead>
+                            <table className="table table-hover table-dark table-striped table-sm">
+                                <thead className="header">
                                     <tr className="previousWinnersHeaderRow">
                                         <th className="firstHeaderRow tableCSS" scope="col">Start Date</th>
                                         <th className="tableCSS" scope="col">End Date</th>
-                                        <th className="lastHeaderRow headerWinner tableCSS" scope="col">👑 Winner</th>
+                                        <th className="lastHeaderRow headerWinner tableCSS" scope="col">League Winner</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -137,7 +137,7 @@ export default function GetStandings({standings, goalScorers, comp}) {
                 </h3>
                 <hr />
                 <div className="tableContainer table-responsive">
-                    <table id="tableStandings" className="table table-hover table-striped table-sm ">
+                    <table id="tableStandings" className="table table-hover table-dark table-striped table-sm ">
                         <thead>
                             <tr>
                                 <th className="tableCSS" scope="col">#</th>
