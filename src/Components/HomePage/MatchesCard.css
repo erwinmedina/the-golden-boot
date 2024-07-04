@@ -27,7 +27,7 @@
     justify-content:space-evenly;
     margin: 10px 0px 10px 0;
     /* padding: 25px; */
-    width: 60%;
+    width: 70%;
     border: 2px rgba(0,0,0,.5) solid;
     background: white;
     box-shadow: 5px 5px 15px #000000;
@@ -144,10 +144,10 @@
 
 @media screen and (max-width: 1000px) {
     .matchesCardContainer {
-        width: 90%;
+        width: 100%;
     }
     .expandable {
-        width: 90%;
+        width: 100%;
     }
 }
 

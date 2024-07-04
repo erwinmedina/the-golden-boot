@@ -6,6 +6,7 @@ import { MoonLoader } from "react-spinners";
 export default function GetStandings({standings, goalScorers, comp}) {
 
     const [filterComp, setFilterComp] = useState([]);
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 380);
     
     useEffect(() => {
         async function filterCompetition() {
@@ -25,6 +26,10 @@ export default function GetStandings({standings, goalScorers, comp}) {
         let age = moment(value, "YYYYMMDD").fromNow(true);
         return(age.slice(0,2));
     }
+    const handleResize = () => {
+        setIsSmallScreen(window.innerWidth < 600);
+    };
+    window.addEventListener('resize', handleResize);
 
     return (
         <div className="container homePageStandings">
@@ -44,9 +49,9 @@ export default function GetStandings({standings, goalScorers, comp}) {
                             <table id="goalStandings" className="scoreStandings table table-striped table-hover table-sm ">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
+                                        <th className="tableCSS" scope="col">#</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Age</th>
+                                        <th className="tableCSS" scope="col">Age</th>
                                         <th scope="col">Nationality</th>
                                         <th scope="col">Club</th>
                                         <th className="tableCSS" scope="col">MP</th>
@@ -59,9 +64,9 @@ export default function GetStandings({standings, goalScorers, comp}) {
                                 <tbody>
                                     {goalScorers?.scorers.length && goalScorers?.scorers.map((player, index) => 
                                         <tr className="tableRow">
-                                            <td>{index + 1}</td>
+                                            <td className="tableCSS">{index + 1}</td>
                                             <td className="">{player.player.name}</td>
-                                            <td className="">{getAge(player.player.dateOfBirth)}</td>
+                                            <td className="tableCSS">{getAge(player.player.dateOfBirth)}</td>
                                             <td className="">{player.player.nationality}</td>
                                             <td className="">{player.team.shortName}</td>
                                             <td className="tableCSS">{player.playedMatches}</td>
@@ -152,7 +157,7 @@ export default function GetStandings({standings, goalScorers, comp}) {
                                 <tr className="tableRow">
                                     <td className="tableCSS">{team.position}</td>
                                     <td className="teamImg"><img alt="stuff" src={team.team.crest}/></td>
-                                    <td className="tableCSS teamName">{team.team.name}</td>
+                                    <td className="tableCSS teamName">{isSmallScreen ? team.team.shortName : team.team.name}</td>
                                     <td className="tableCSS teamStats">{team.playedGames}</td>
                                     <td className="tableCSS teamStats">{team.won}</td>
                                     <td className="tableCSS teamStats">{team.lost}</td>

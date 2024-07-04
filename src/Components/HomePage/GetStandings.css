@@ -107,7 +107,6 @@ tbody tr:last-child td {
 }
 .goalScorerStats {
     width: 70%;
-    /* height: 533px; */
 }
 
 .goalScorerStats > div {
@@ -121,7 +120,7 @@ tbody tr:last-child td {
     margin: 40px 0 0 0;
 }
 .tableStats > div {
-    margin: 40px auto;
+    margin: 0 auto 40px auto;
     padding: 10px;
     background: lightgray;
     border-radius: 30px;
@@ -137,7 +136,6 @@ hr {
 }
 .previousWinners {
     width: 50%;
-    height: 350px;
 }
 #goalScorersAndWinners {
     display: flex;
@@ -154,7 +152,7 @@ hr {
 .previousWinnersTable {
     background: white;
     border-radius: 20px;
-    height: 100%;
+    max-height: 350px;
     padding: 5px;
     border-spacing: 0 50px;
 }
@@ -163,9 +161,10 @@ hr {
 }
 .winnerTableValue {
     display: flex;
+    justify-content: center;
 }
 .previousWinnerCrestDiv {
-    width: 40%;
+    padding: 0 5px;
     display: flex;
     align-items: center;
 }
@@ -175,7 +174,7 @@ hr {
     width: 30px;
 }
 .previousWinnerTextDiv {
-    width: 100%;
+    width: 40%;
     display: flex;
     margin: 0 0 0 5px;
 }
@@ -183,8 +182,9 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     margin: 0;
-    width: 60%;
+    width: 100%;
 }
 
 @media screen and (max-width: 1700px) {
@@ -201,7 +201,6 @@ hr {
     }
     #goalScorersAndWinners {
         flex-direction: column;
-        height: 1050px;
     }
 }
 
@@ -224,7 +223,7 @@ hr {
         margin: 0 auto;
     }
     .previousWinnersTable {
-        width: 70%;
+        width: 100%;
         margin: 0 auto;
     }
     .previousWinnersTable > table {
@@ -243,7 +242,10 @@ hr {
 }
 
 @media screen and (max-width: 500px) {
-    .homePageStandings {
+    .tableCSS {
         font-size: .7rem;
+    }
+    .previousWinnerCrest {
+        display: none;
     }
 }
