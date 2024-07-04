@@ -65,6 +65,9 @@
 #goalStandings > tbody > tr:last-child > td:last-of-type {
     border-bottom-right-radius: 10px;
 }
+.table {
+    border-bottom-width: none !important;
+}
 
 .tableRow {
     vertical-align: middle;
@@ -129,7 +132,6 @@ tbody tr:last-child td {
     border: 2px solid #ffcc00;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
 }
 hr {
     border: none;

@@ -140,8 +140,8 @@ export default function GetStandings({standings, goalScorers, comp}) {
                     <table id="tableStandings" className="table table-hover table-dark table-striped table-sm ">
                         <thead>
                             <tr>
-                                <th className="tableCSS" scope="col">#</th>
-                                <th colSpan="2" scope="col" className="tableCSS teamName">Club</th>
+                                <th className="tableCSS" scope="col"></th>
+                                <th colSpan="2" scope="col" className="tableCSS teamName"></th>
                                 <th className="tableCSS" scope="col">MP</th>
                                 <th className="tableCSS" scope="col">W</th>
                                 <th className="tableCSS" scope="col">D</th>
