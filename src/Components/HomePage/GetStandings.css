@@ -65,8 +65,9 @@
 #goalStandings > tbody > tr:last-child > td:last-of-type {
     border-bottom-right-radius: 10px;
 }
-.table {
-    border-bottom-width: none !important;
+
+.table>:not(caption)>*>* {
+    border-bottom-width: 0 !important;
 }
 
 .tableRow {
@@ -123,6 +124,10 @@ tbody tr:last-child td {
     box-shadow: 0 4px 8px rgba(0,0,0,1);
     width: 90%;
 }
+.playerName p {
+    margin: 0;
+}
+
 .tableStats {
     margin: 40px 0 0 0;
 }
@@ -131,7 +136,7 @@ tbody tr:last-child td {
     width: 70%;
     border: 2px solid #ffcc00;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,1);
 }
 hr {
     border: none;
@@ -199,6 +204,18 @@ hr {
 .header {
     position: sticky;
     top: 0;
+}
+.legend {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border: none !important;
+    font-size: .7em;
+}
+.legend p {
+    margin-bottom: 0;
+    color: white;
+    font-style: italic;
 }
 
 @media screen and (max-width: 1700px) {

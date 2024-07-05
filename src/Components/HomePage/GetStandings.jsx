@@ -53,7 +53,7 @@ export default function GetStandings({standings, goalScorers, comp}) {
                                         <th className="" scope="col"></th>
                                         <th scope="col"></th>
                                         <th className="tableCSS" scope="col">Age</th>
-                                        <th scope="col">Club</th>
+                                        <th className="tableCSS" scope="col">Club</th>
                                         <th className="tableCSS" scope="col">MP</th>
                                         <th className="tableCSS" scope="col">G</th>
                                         <th className="tableCSS" scope="col">P</th>
@@ -65,10 +65,14 @@ export default function GetStandings({standings, goalScorers, comp}) {
                                     {goalScorers?.scorers.length && goalScorers?.scorers.map((player, index) => 
                                         <tr className="tableRow">
                                             <td className="tableCSS">{index + 1}</td>
-                                            <td className="nationalityPlayer"><NationalityFlag country={player.player.nationality}/> {player.player.name}</td>
+                                            <td className="tableCSS nationalityPlayer">
+                                                <NationalityFlag country={player.player.nationality}/> 
+                                                <div className="playerName">
+                                                    <p>{player.player.name}</p>
+                                                </div>
+                                            </td>
                                             <td className="tableCSS">{getAge(player.player.dateOfBirth)}</td>
-                                            {console.log(player.player.nationality)}
-                                            <td className="">{player.team.shortName}</td>
+                                            <td className="tableCSS">{player.team.shortName}</td>
                                             <td className="tableCSS">{player.playedMatches}</td>
                                             <td className="tableCSS">{player.goals}</td>
                                             <td className="tableCSS">{player.penalties ?? 0}</td>
@@ -84,6 +88,13 @@ export default function GetStandings({standings, goalScorers, comp}) {
                             <MoonLoader color="#000000" />
                         </div>
                     }
+                    <div className="legend container">
+                        <p>MP = Matches Played</p>
+                        <p>G = Goals</p>
+                        <p>P = Penalties Scored</p>
+                        <p>A = Assists</p>
+                        <p>G/MP = Goals / Matches Played (Ratio)</p>
+                    </div>
                 </div>
                 <div className="homePageStandingsContainer previousWinners">
                     <h2>Previous League Winners</h2>
@@ -171,6 +182,15 @@ export default function GetStandings({standings, goalScorers, comp}) {
                         </tbody>
                     </table>
                 </div>
+                <div className="legend container">
+                        <p>MP = Matches Played</p>
+                        <p>W = Win</p>
+                        <p>D = Draws</p>
+                        <p>L = Loses</p>
+                        <p>GF = Goals For</p>
+                        <p>GA = Goals Against</p>
+                        <p>GD = Goal Difference</p>
+                    </div>
             </div>
         </div>
   );

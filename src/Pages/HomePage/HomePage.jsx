@@ -43,13 +43,34 @@ export default function HomePage() {
                     <div className="card-body coverageDetails">
                         <p className="card-title">League Coverage</p>
                         <div className="leagueCoverage card-text">
-                            <div>Premier League 🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
-                            <div>La Liga 🇪🇸</div>
-                            <div>Championship 🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
-                            <div>Bundesliga 🇩🇪</div>
-                            <div>Serie A 🇮🇹</div>
-                            <div>Ligue 1 🇫🇷</div>
-                            <div>Premeira Liga 🇵🇹</div>
+                            <div className="league">
+                                <div>🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+                                <div>Premier League</div>
+                            </div>
+                            <div className="league">
+                                <div>🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+                                <div>Championship</div>
+                            </div>
+                            <div className="league">
+                                <div>🇪🇸</div>
+                                <div>La Liga</div>
+                            </div>
+                            <div className="league">
+                                <div>🇩🇪</div>
+                                <div>Bundesliga</div>
+                            </div>
+                            <div className="league">
+                                <div>🇮🇹</div>
+                                <div>Serie A</div>
+                            </div>
+                            <div className="league">
+                                <div>🇫🇷</div>
+                                <div>Ligue 1</div>
+                            </div>
+                            <div className="league">
+                                <div>🇵🇹</div>
+                                <div>Premeira Liga</div>
+                            </div>
                         </div>
                     </div>
                 </div>
