@@ -32,8 +32,6 @@ Sometimes when I'm looking for quick information like which games are coming up 
 - API [Football-Data.Org]
 
 ## Icebox Items:
-- Find a new hosting website.
-- Add a legend to the Standings Page.
 - Add additional sorting options for Matches and Team pages.
     - Sort by date [asc or desc]
     - and others..
@@ -42,6 +40,8 @@ Sometimes when I'm looking for quick information like which games are coming up 
 - Add a map of where each stadium is located. Or other cool info.
 
 ## Completed Tasks
+- Find a new hosting website.
+- Add a legend to the Standings Page.
 - Implemented Redis Caching to reduce API strain.
 - Utilized Express to make API calls from the backend, instead of front end. Avoiding COR issues.
 - Adjust API call to display correct info on Table Standings when clicking different seasons.
