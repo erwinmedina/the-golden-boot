@@ -21,8 +21,8 @@ Sometimes when I'm looking for quick information like which games are coming up 
 | HomePage Details | ![HomePageDeets](https://i.imgur.com/S8YPVwc.png)
 | Matches Page | ![MatchesPage](https://i.imgur.com/s5noWoq.png)
 | Teams Page | ![TeamsPage](https://i.imgur.com/JQ3HHZ8.png)
-| Standings Page (Scorers and Winners) | ![ScorersAndWinners](https://i.imgur.com/yMANZk5.png)
-| Standings Page (Table) | ![StandingsTable](https://i.imgur.com/4ejx9OL.png)
+| Standings Page (Scorers and Winners) | ![ScorersAndWinners](https://i.imgur.com/6Uj8K97.png)
+| Standings Page (Table) | ![StandingsTable](https://i.imgur.com/NMhfzVj.png)
 
 ## Technology Used:
 - HTML/CSS/Bootstrap
