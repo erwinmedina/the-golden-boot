@@ -40,6 +40,7 @@ export default function Navbar({ setId, setSeasonID }) {
                 <li className="nav-item dropdown">
                     <a className={`nav-link dropdown-toggle ${isHomePage ? 'disabled' : ''}`} href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Season</a>
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a className="dropdown-item" onClick={() => setSeasonID(2024)} value="2022" href="#">2024-2025</a>
                         <a className="dropdown-item" onClick={() => setSeasonID(2023)} value="2022" href="#">2023-2024</a>
                         <a className="dropdown-item" onClick={() => setSeasonID(2022)} value="2022" href="#">2022-2023</a>
                         <a className="dropdown-item" onClick={() => setSeasonID(2021)} value="2021" href="#">2021-2022</a>

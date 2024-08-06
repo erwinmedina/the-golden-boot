@@ -10,7 +10,7 @@ import TeamsPage from '../TeamsPage/TeamsPage';
 export default function App() {
 
   const [id, setId] = useState(2021);
-  const [seasonID, setSeasonID] = useState(2023);
+  const [seasonID, setSeasonID] = useState(2024);
 
   return (
         <div className="App">
