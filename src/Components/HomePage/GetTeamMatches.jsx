@@ -21,15 +21,6 @@ export default function GetTeamMatches({id, seasonID, teamArray, allMatches, fil
     function handleTeam(event) {
         setTeam(event.target.value)
     }
-
-    // function handleHomeGoalsSort() {
-    //     if (filteredMatches.length) {
-    //         for (let i = 0; i < filteredMatches.length; i++) {
-    //             console.log(filteredMatches[i].score.fullTime.homeTeam)
-    //             filteredMatches[i].sort((a,b) => a.score.fullTime.homeTeam > b.score.fullTime.homeTeam ? 1:-1);
-    //         }
-    //     }
-    // }
     
     return (
         <div className="container">

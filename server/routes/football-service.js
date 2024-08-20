@@ -11,11 +11,11 @@ module.exports = (client) => {
   const checkCache = (endpoint) => async (req, res, next) => {
       const { id, seasonID } = req.query;
       const cacheKey = `${endpoint}:${id}:${seasonID}`;
-
+      
       try {
         const cachedData = await client.get(cacheKey);
         if (cachedData) {
-
+          const ttl = await client.ttl(cacheKey);
           console.log("I hit the cache! Non-competition route")
           return res.json(JSON.parse(cachedData));
         } else {
@@ -67,7 +67,9 @@ module.exports = (client) => {
       console.log("I hit the API; non-competition route!")
       
       const cacheKey = `${endpoint}:${id}:${seasonID}`;
-      await client.set(cacheKey, JSON.stringify(response.data), 'EX', 300);
+      await client.set(cacheKey, JSON.stringify(response.data));
+      await client.expire(cacheKey, 300);
+
       res.json(response.data);
     } catch (error) {
       res.status(500).json({ error: `Failed to fetch ${endpoint} from the API`});
@@ -91,7 +93,9 @@ module.exports = (client) => {
       console.log("I hit the API; In the competition route!")
 
       const cacheKey = `${endpoint}:${id}`;
-      await client.set(cacheKey, JSON.stringify(response.data), 'EX', 300);
+      await client.set(cacheKey, JSON.stringify(response.data));
+      await client.expire(cacheKey, 300);
+
       res.json(response.data);
     } catch (error) {
       res.status(500).json({ error: `Failed to fetch ${endpoint} from the API` });

@@ -40,15 +40,3 @@ export function getStandings(id, seasonID){
     .then(res => res.json())
     .catch(error => console.log('Error while fetching:', error))
 }
-
-// export function getPlayers(id, seasonID){
-//     return fetch(`${NEW_URL}/persons/44`, {
-//         method: "GET",
-//         mode: "cors",
-//         headers: { 
-//             'X-Auth-Token': process.env.REACT_APP_REVISED_KEY },
-//             "Content-Type": "application/json",
-//     })
-//     .then(res => res.json())
-//     .catch(error => console.log('Error while fetching:', error))
-// }
