@@ -63,7 +63,7 @@ export default function SmallStandings({ selectedTeams }) {
                                 <td className="overallText">{team.goalsFor}:{team.goalsAgainst}</td>
                                 <td className="overallText">{team.goalDifference}</td>
                                 <td className="overallText">{team.points}</td>
-                                <td className="overallText">{ splitForms(team.form)}</td>
+                                <td className="teamFormBalls overallText">{ splitForms(team.form)}</td>
                             </tr>
                             :
                             <tr>
@@ -76,7 +76,7 @@ export default function SmallStandings({ selectedTeams }) {
                                 <td className="overallText">{team.goalsFor}:{team.goalsAgainst}</td>
                                 <td className="overallText">{team.goalDifference}</td>
                                 <td className="overallText">{team.points}</td>
-                                <td className="overallText">{ splitForms(team.form)}</td>
+                                <td className="teamFormBalls overallText">{ splitForms(team.form)}</td>
                             </tr>
                         )
                     )}

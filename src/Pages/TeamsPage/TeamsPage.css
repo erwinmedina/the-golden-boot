@@ -102,4 +102,7 @@
         height: 100%;
         top: 0;
     }
+    .teamFormBalls {
+        font-size: 10px;
+    }
 }
