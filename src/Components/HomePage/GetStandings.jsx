@@ -122,7 +122,7 @@ export default function GetStandings({standings, goalScorers, comp}) {
                                             <td className="tableCSS">{AmericanDate_Fix(comp.endDate)}</td>
                                             <td className="winnerTableValue tableCSS">
                                                 <div className="previousWinnerCrestDiv">
-                                                    <img className="previousWinnerCrest" src={comp.winner.crest} alt="" />
+                                                    <img title={comp.winner.name} className="previousWinnerCrest" src={comp.winner.crest} alt="" />
                                                 </div>
                                                 <div className="previousWinnerTextDiv">
                                                     <p className="previousWinnerText">{comp.winner.shortName}</p>

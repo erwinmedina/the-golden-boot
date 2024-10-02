@@ -16,7 +16,7 @@ export default function HomePage() {
                     <img className="card-img-top" src="https://i.imgur.com/ijVcQYQ.jpeg" alt="" />
                     <div className="card-body coverageDetails">
                         <p className="card-title">Matches</p>
-                        <p className="card-text"> Here you can filter by matchday, allowing you quickly see the teams you're going up against or check out previous games and see how you did.</p>
+                        <p className="card-text"> Here you can filter by matchday, allowing you to quickly see the teams you're going up against or check out the results of previous games.</p>
                         <div className="coverageDetailsButton">
                             <Link className="cardButton btn btn-primary" to="/matches">Check it out <i className="arrow right"></i></Link>
                         </div>
@@ -34,7 +34,7 @@ export default function HomePage() {
                     <img className="card-img-top" src="https://i.imgur.com/3JUdZ2X.jpeg" alt="" />
                     <div className="card-body coverageDetails">
                         <p className="card-title">Standings</p>
-                        <p className="card-text"> Want to see how your team is performing (or has performed)? Check out the standings and where they are in the table. Also check out who's leading the goal scoring!</p>
+                        <p className="card-text"> Want to see how your team is performing? Check out the standings and where they are in the league table. Also check out who's the leading goal scorers!</p>
                         <Link className="cardButton btn btn-primary" to="/standings">Check it out <i className="arrow right"></i></Link>
                     </div>
                 </div>
@@ -81,7 +81,7 @@ export default function HomePage() {
                         <p className="card-text">
                             <div>- Filter for match days</div>
                             <div>- Filter for your favorite teams</div>
-                            <div>- Check out team standings</div>
+                            <div>- Check out league standings</div>
                             <div>- See leading goal scorers</div>
                             <div>- Adjust the season year</div>
                         </p>

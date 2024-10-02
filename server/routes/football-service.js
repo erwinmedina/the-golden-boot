@@ -16,7 +16,7 @@ module.exports = (client) => {
         const cachedData = await client.get(cacheKey);
         if (cachedData) {
           const ttl = await client.ttl(cacheKey);
-          console.log("I hit the cache! Non-competition route")
+          console.log(`I hit the cache! Non-competition route - ${new Date().getTime()}`)
           return res.json(JSON.parse(cachedData));
         } else {
           next();
@@ -38,7 +38,7 @@ module.exports = (client) => {
       const cachedData = await client.get(cacheKey);
       if (cachedData) {
 
-        console.log("I hit the cache! Competition route")
+        console.log(`I hit the cache! Competition route - ${new Date().getTime()}`)
         return res.json(JSON.parse(cachedData));
       } else {
         next();
@@ -64,7 +64,7 @@ module.exports = (client) => {
       const response = await axios.get(`${NEW_URL}/competitions/${id}/${endpoint}?season=${seasonID}`, {
         headers: { 'X-Auth-Token': token },
       });
-      console.log("I hit the API; non-competition route!")
+      console.log(`I hit the API; non-competition route! - ${new Date().getTime()}`)
       
       const cacheKey = `${endpoint}:${id}:${seasonID}`;
       await client.set(cacheKey, JSON.stringify(response.data));
@@ -90,7 +90,7 @@ module.exports = (client) => {
       const response = await axios.get(`${NEW_URL}/${endpoint}/${id}`, {
         headers: { 'X-Auth-Token': token },
       });
-      console.log("I hit the API; In the competition route!")
+      console.log(`I hit the API; In the competition route! - ${new Date().getTime()}`)
 
       const cacheKey = `${endpoint}:${id}`;
       await client.set(cacheKey, JSON.stringify(response.data));

@@ -26,8 +26,7 @@
     align-items: center;
     justify-content:space-evenly;
     margin: 10px 0px 10px 0;
-    /* padding: 25px; */
-    width: 70%;
+    width: 85%;
     border: 2px rgba(0,0,0,.5) solid;
     background: white;
     box-shadow: 5px 5px 15px #000000;
@@ -81,7 +80,7 @@
     background: teal;
     color: white;
     border: 2px rgba(255,255,255,.6) solid;
-    box-shadow: 5px 5px #000000d2;
+    box-shadow: 5px 5px 15px #000000;
 }
 
 .cardContainerCenter {

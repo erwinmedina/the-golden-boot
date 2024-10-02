@@ -206,10 +206,11 @@ const countryFlags = {
 };
 
 const NationalityFlag = ({ country }) => {
+  if (country == null) return;
   const flagCode = countryFlags[country.replace(/\s+/g, '')] || 'un';
   return (
     <div className="flagCircle">
-        <span className={`nationality fi fi-${flagCode}`} style={{ fontSize: '2rem' }}></span>
+        <span title={country} className={`nationality fi fi-${flagCode}`} style={{ fontSize: '2rem' }}></span>
     </div>
   );
 };

@@ -43,8 +43,8 @@ export default function Navbar({ setId, setSeasonID }) {
                         <a className="dropdown-item" onClick={() => setSeasonID(2024)} value="2022" href="#">2024-2025</a>
                         <a className="dropdown-item" onClick={() => setSeasonID(2023)} value="2022" href="#">2023-2024</a>
                         <a className="dropdown-item" onClick={() => setSeasonID(2022)} value="2022" href="#">2022-2023</a>
-                        <a className="dropdown-item" onClick={() => setSeasonID(2021)} value="2021" href="#">2021-2022</a>
-                        <a className="dropdown-item" onClick={() => setSeasonID(2020)} value="2020" href="#">2020-2021</a>
+                        {/* <a className="dropdown-item" onClick={() => setSeasonID(2021)} value="2021" href="#">2021-2022</a>
+                        <a className="dropdown-item" onClick={() => setSeasonID(2020)} value="2020" href="#">2020-2021</a> */}
                     </div>
                 </li>
             </ul>

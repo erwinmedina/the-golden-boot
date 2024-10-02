@@ -1,0 +1,45 @@
+.squadTable {
+    border: 2px solid #ffcc00;
+    border-radius: 20px;
+    padding: 3px;
+    max-height: 500px;
+    overflow: auto;
+    width: 100%;
+    position: relative;
+}
+.imageHolder {
+    position: absolute;
+    width: 100%;
+    min-height: 1000px;
+    top: 0;
+    z-index: -1;
+}
+.imageHolder img {
+    width: 200px;
+    height: 200px;
+    position: sticky;
+    top: 0;
+    margin: 0 auto;
+}
+.table-background th,
+.table-background td {
+    background-color: rgba(33, 37, 41, 0.9);
+}
+.headerText > th {
+    color: gold;
+    font-size: 18px;
+}
+.playerName {
+    margin-left: 10px;
+}
+.teamSquadTitle {
+    font-family: "Sriracha";
+    margin-bottom: 20px;
+    color: white;
+}
+.playerText {
+    text-align: center;
+}
+.playerPosition {
+    cursor: pointer;
+}
