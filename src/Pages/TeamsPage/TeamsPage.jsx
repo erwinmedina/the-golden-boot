@@ -4,9 +4,11 @@ import { PulseLoader } from "react-spinners";
 import "./TeamsPage.css";
 import Squad from "../../Components/HomePage/Squad";
 import MatchesHeader from "../../Components/HomePage/MatchesHeader";
+import SmallStandings from "../../Components/HomePage/SmallStandings";
 
 export default function TeamsPage({id, seasonID}) {
     const [loading, setLoading] = useState(true);
+    const [standings, setStandings] = useState({});
     const [allTeamInfo, setAllTeamInfo] = useState({});
     const [teamArray, setTeamArray] = useState([]);
     const [allMatches, setAllMatches] = useState([]);
@@ -17,9 +19,14 @@ export default function TeamsPage({id, seasonID}) {
     const [squadInfo, setSquadInfo] = useState([])
     const [filterSquad, setFilterSquad] = useState([])
     const [squadButton, setSquadButton] = useState(true);
+    const [formButton, setFormButton] = useState(true);
+    const [selectedTeams, setSelectedTeams] = useState([]);
 
     function handleButtonDisplay() {
         setSquadButton(prevState => !prevState)
+    }
+    function handleFormDisplay() {
+        setFormButton(prevState => !prevState);
     }
 
     useEffect(() => {
@@ -35,6 +42,11 @@ export default function TeamsPage({id, seasonID}) {
                 const matchesResponse = await fetch(`/api/matches?id=${id}&seasonID=${seasonID}`);
                 const matchesData = await matchesResponse.json();
                 setAllMatches([matchesData]);
+
+                // Fetch standings
+                const standingsResponse = await fetch(`/api/standings?id=${id}&seasonID=${seasonID}`);
+                const standingsData = await standingsResponse.json();
+                setStandings(standingsData);
 
                 // Fetches players from MongoDB
                 if (parseInt(seasonID) >= 2022) {
@@ -52,7 +64,7 @@ export default function TeamsPage({id, seasonID}) {
         fetchData();
     }, [id, seasonID]);
 
-
+    // Filters all teams to just 1 current team
     useEffect(() => {
         if (squadInfo.length > 0 && team) {
             const tempSquads = squadInfo[0]?.teams || [];
@@ -61,13 +73,28 @@ export default function TeamsPage({id, seasonID}) {
         }
     }, [squadInfo, team]);
 
+    // Gets the 5 teams for the standings table //
+    useEffect(() => {
+        if (standings && standings.standings && standings.standings.length > 0) {
+            const teamsArray = standings?.standings[0].table;
+            const currentTeamIndex = teamsArray?.findIndex(teamObj => teamObj?.team?.name === team);
+    
+            if (currentTeamIndex !== -1) {
+                const start = Math.max(0, currentTeamIndex - 2);
+                const end = Math.min(teamsArray?.length, currentTeamIndex + 3);
+                const teamsToDisplay = teamsArray?.slice(start, end);
+                setSelectedTeams(teamsToDisplay);
+            }
+        }
+    }, [squadInfo, team])
+
     useEffect(() => {
         async function allTeamNames() {
             try {
                 const allTeams = allTeamInfo;
                 allTeams?.teams?.sort((a, b) => a.shortName > b.shortName ? 1 : -1);
                 setTeamArray(allTeams?.teams);
-                setTeam(allTeams?.teams[0].name);
+                setTeam(allTeams?.teams[0]?.name);
                 setNumOfMatchesArray([]);
                 setMatchday(allTeams?.season.currentMatchday);
                 for (let i = 1; i <= allTeams?.count * 2 - 2; i++) {
@@ -101,6 +128,14 @@ export default function TeamsPage({id, seasonID}) {
                     setTeam={setTeam}
                 />
             </div>
+            <div className="buttonBar">
+                <div className="teamsButton showSquadButton">
+                    <button onClick={handleButtonDisplay} className="btn btn-primary">{squadButton ? "Hide":"Show"} Squad</button>
+                </div>
+                <div className="teamsButton showFormButton">
+                    <button onClick={handleFormDisplay} className="btn btn-primary">{formButton ? "Hide":"Show"} Form</button>
+                </div>
+            </div>
             <div className="teamsPageinfo">
                 <div className="teamsPageMatches">
                     <GetTeamMatches
@@ -110,10 +145,8 @@ export default function TeamsPage({id, seasonID}) {
                         filter={'team'}
                     />
                 </div>
+                <div className="teamsPageMultiple">
                     <div className="teamsPageSquad">
-                        <div className="showSquadButton">
-                            <button onClick={handleButtonDisplay} className="btn btn-primary">{squadButton ? "Hide":"Show"} Squad</button>
-                        </div>
                         {squadButton ? 
                             <div>
                                 <h1 className="teamSquadTitle">{filterSquad[0]?.shortName} Squad</h1>
@@ -123,6 +156,15 @@ export default function TeamsPage({id, seasonID}) {
                             ""
                         }
                     </div>
+                    {formButton ? 
+                        <div className="teamsPageForm">
+                            <h1 className="teamSquadTitle">Current Form</h1>        
+                            <SmallStandings selectedTeams={selectedTeams}/>
+                        </div>
+                        :
+                        ""  
+                    }
+                </div>
             </div>
         </div>
     )

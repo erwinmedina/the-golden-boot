@@ -22,7 +22,7 @@ export default function MatchesCard({index, teamArray, match, matchday, filter})
     let dataToggleID = "navbarToggleExternalContent" + index;
 
     return (
-        <div className="">
+        <div id={index+1}>
             <div className={`navbar-toggler ${matchday !== match.matchday ? '' : filter !== 'team' ? '' : 'currentMatchday'} matchesCardContainer`} data-toggle="collapse" data-target={dataToggleTag}>
                 <div className="topMatchCard">
                     {(matchday === match.matchday) && filter === "team" ? 

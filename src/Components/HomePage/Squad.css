@@ -43,3 +43,24 @@
 .playerPosition {
     cursor: pointer;
 }
+
+#squadList > thead > tr > th:first-of-type {
+    border-top-left-radius: 20px;
+    margin-top: 10px;
+}
+#squadList > thead > tr > th:last-of-type {
+    border-top-right-radius: 20px;
+    margin-top: 10px;
+}
+#squadList > tbody > tr:last-child > td:first-of-type {
+    border-bottom-left-radius: 20px;
+    /* margin-bottom: 10px; */
+}
+#squadList > tbody > tr:last-child > td:last-of-type {
+    border-bottom-right-radius: 20px;
+    /* margin-bottom: 10px; */
+}
+#squadList > tbody > tr:last-child > td {
+    padding: 10px;
+    background: yellow;
+}

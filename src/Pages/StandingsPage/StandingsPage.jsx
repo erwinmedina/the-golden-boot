@@ -30,7 +30,6 @@ export default function StandingsPage({id, seasonID}) {
         fetchData();
     }, [id, seasonID]);
 
-    console.log(comp);
     return (
         <div>
             <GetStandings 

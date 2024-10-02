@@ -18,23 +18,61 @@
     display: flex;
 }
 
-
 .teamsPageMatches {
     width: 60%;
 }
 .teamsPageSquad {
     top: 60; 
-    position: sticky;
     margin: 0 auto;
-    width: 30%;
+    width: 100%;
     margin-top: 40px;
-    height: 100vh;
 }
-.showSquadButton {
-    margin: 20px;
+.teamsPageMultiple {
+    padding: 20px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+.teamsPageSmallStandings {
+    margin: 20px 0;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 2px solid #ffcc00;
+}
+
+#smallStandings > thead > tr > th:first-of-type {
+    border-top-left-radius: 20px;
+}
+#smallStandings > thead > tr > th:last-of-type {
+    border-top-right-radius: 20px;
+}
+#smallStandings > tbody > tr:last-child > td:first-of-type {
+    border-bottom-left-radius: 20px;
+}
+#smallStandings > tbody > tr:last-child > td:last-of-type {
+    border-bottom-right-radius: 20px;
+}
+
+.buttonBar {
+    margin: 0 auto;
+    /* width: 50%; */
+    display: flex;
+    /* justify-content: space-around; */
+}
+.teamsButton {
+    display: none;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+.teamsPageForm {
+    margin-top: 30px;
 }
 
 @media screen and (max-width: 1050px) {
+    .teamsButton {
+        display:flex;
+    }
     .teamsPage {
         flex-direction: column;
     }
@@ -44,6 +82,16 @@
     .teamsPageMatches {
         order: 2;
         width: 100%;
+    }
+    .teamsPageMultiple {
+        padding: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .teamsPageForm {
+        margin: 0 auto;
+        width: 90%;
     }
     .teamsPageSquad {
         margin-bottom: 50px;
