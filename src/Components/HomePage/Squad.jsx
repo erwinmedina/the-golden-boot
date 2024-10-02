@@ -48,7 +48,7 @@ export default function Squad( { filterSquad }) {
             <div className="imageHolder">
                 <img src={`${filterSquad[0]?.crest}`}/>
             </div>
-            <table className="scoreStandings table table-striped table-dark table-hover table-background"
+            <table id="squadTable" className="scoreStandings table table-striped table-dark table-hover table-background"
             >
                 {/* COACH */}
                 <thead>

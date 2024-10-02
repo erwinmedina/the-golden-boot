@@ -40,6 +40,9 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border: 2px solid #ffcc00;
 }
+#smallStandings {
+    margin-bottom: 0;
+}
 
 #smallStandings > thead > tr > th:first-of-type {
     border-top-left-radius: 20px;

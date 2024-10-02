@@ -1,7 +1,7 @@
 .squadTable {
     border: 2px solid #ffcc00;
     border-radius: 20px;
-    padding: 3px;
+    padding: 0;
     max-height: 500px;
     overflow: auto;
     width: 100%;
@@ -13,6 +13,9 @@
     min-height: 1000px;
     top: 0;
     z-index: -1;
+}
+#squadTable {
+    margin-bottom: 0;
 }
 .imageHolder img {
     width: 200px;

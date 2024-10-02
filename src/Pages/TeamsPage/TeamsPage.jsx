@@ -129,11 +129,11 @@ export default function TeamsPage({id, seasonID}) {
                 />
             </div>
             <div className="buttonBar">
-                <div className="teamsButton showSquadButton">
-                    <button onClick={handleButtonDisplay} className="btn btn-primary">{squadButton ? "Hide":"Show"} Squad</button>
-                </div>
                 <div className="teamsButton showFormButton">
                     <button onClick={handleFormDisplay} className="btn btn-primary">{formButton ? "Hide":"Show"} Form</button>
+                </div>
+                <div className="teamsButton showSquadButton">
+                    <button onClick={handleButtonDisplay} className="btn btn-primary">{squadButton ? "Hide":"Show"} Squad</button>
                 </div>
             </div>
             <div className="teamsPageinfo">
@@ -145,26 +145,30 @@ export default function TeamsPage({id, seasonID}) {
                         filter={'team'}
                     />
                 </div>
-                <div className="teamsPageMultiple">
-                    <div className="teamsPageSquad">
-                        {squadButton ? 
-                            <div>
-                                <h1 className="teamSquadTitle">{filterSquad[0]?.shortName} Squad</h1>
-                                <Squad filterSquad={filterSquad}/>
+                { squadButton || formButton ? 
+                    <div className="teamsPageMultiple">
+                        <div className="teamsPageSquad">
+                            {squadButton ? 
+                                <div>
+                                    <h1 className="teamSquadTitle">{filterSquad[0]?.shortName} Squad</h1>
+                                    <Squad filterSquad={filterSquad}/>
+                                </div>
+                            :
+                                ""
+                            }
+                        </div>
+                        {formButton ? 
+                            <div className="teamsPageForm">
+                                <h1 className="teamSquadTitle">Current Form</h1>        
+                                <SmallStandings selectedTeams={selectedTeams}/>
                             </div>
-                        :
-                            ""
+                            :
+                            ""  
                         }
                     </div>
-                    {formButton ? 
-                        <div className="teamsPageForm">
-                            <h1 className="teamSquadTitle">Current Form</h1>        
-                            <SmallStandings selectedTeams={selectedTeams}/>
-                        </div>
-                        :
-                        ""  
-                    }
-                </div>
+                    :
+                    ""
+                }
             </div>
         </div>
     )
