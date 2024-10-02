@@ -33,23 +33,21 @@ export default function SmallStandings({ selectedTeams }) {
                     { isSmallScreen ?
                         <tr>
                             <th className="overallText">#</th>
-                            <th colSpan={2}></th>
+                            <th colSpan={1}></th>
                             <th className="overallText">Goals</th>
                             <th className="overallText">GD</th>
                             <th className="overallText">P</th>
-                            <th className="overallText">Form</th>
                         </tr>
                         :
                         <tr>
                             <th className="overallText">#</th>
-                            <th colSpan={2}></th>
+                            <th colSpan={1}></th>
                             <th className="overallText">W</th>
                             <th className="overallText">D</th>
                             <th className="overallText">L</th>
                             <th className="overallText">Goals</th>
                             <th className="overallText">GD</th>
                             <th className="overallText">P</th>
-                            <th className="overallText">Form</th>
                         </tr>
                     }
                 </thead>
@@ -58,25 +56,37 @@ export default function SmallStandings({ selectedTeams }) {
                         (isSmallScreen ? 
                             <tr>
                                 <td className="overallText">{team.position}</td>
-                                <td className="teamNames teamImg"><img alt="stuff" src={team.team.crest}/></td>
-                                <td className="teamNames">{team.team.shortName}</td>
+                                <div className="nameAndFormContainer">
+                                    <div className="teamCrest">
+                                        <td className="teamNames teamImg"><img alt="stuff" src={team.team.crest}/></td>
+                                    </div>
+                                    <div className="nameAndForm">
+                                        <td className="teamNames">{team.team.shortName}</td>
+                                        <td className="teamFormBalls teamNames">{ splitForms(team.form)}</td>
+                                    </div>
+                                </div>
                                 <td className="overallText">{team.goalsFor}:{team.goalsAgainst}</td>
                                 <td className="overallText">{team.goalDifference}</td>
                                 <td className="overallText">{team.points}</td>
-                                <td className="teamFormBalls overallText">{ splitForms(team.form)}</td>
                             </tr>
                             :
                             <tr>
                                 <td className="overallText">{team.position}</td>
-                                <td className="teamNames teamImg"><img alt="stuff" src={team.team.crest}/></td>
-                                <td className="teamNames">{team.team.shortName}</td>
+                                <div className="nameAndFormContainer">
+                                    <div className="teamCrest">
+                                        <td className="teamNames teamImg"><img alt="stuff" src={team.team.crest}/></td>
+                                    </div>
+                                    <div className="nameAndForm">
+                                        <td className="teamNames">{team.team.shortName}</td>
+                                        <td className="teamFormBalls teamNames">{ splitForms(team.form)}</td>
+                                    </div>
+                                </div>
                                 <td className="overallText">{team.won}</td>
                                 <td className="overallText">{team.draw}</td>
                                 <td className="overallText">{team.lost}</td>
                                 <td className="overallText">{team.goalsFor}:{team.goalsAgainst}</td>
                                 <td className="overallText">{team.goalDifference}</td>
                                 <td className="overallText">{team.points}</td>
-                                <td className="teamFormBalls overallText">{ splitForms(team.form)}</td>
                             </tr>
                         )
                     )}
