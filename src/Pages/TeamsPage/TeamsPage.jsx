@@ -73,15 +73,30 @@ export default function TeamsPage({id, seasonID}) {
         }
     }, [squadInfo, team]);
 
-    // Gets the 5 teams for the standings table //
+    // Gets the 5 teams for the small standings table //
     useEffect(() => {
         if (standings && standings.standings && standings.standings.length > 0) {
             const teamsArray = standings?.standings[0].table;
             const currentTeamIndex = teamsArray?.findIndex(teamObj => teamObj?.team?.name === team);
-    
+            
+            // checks to see if team exists before doing anything.
             if (currentTeamIndex !== -1) {
-                const start = Math.max(0, currentTeamIndex - 2);
-                const end = Math.min(teamsArray?.length, currentTeamIndex + 3);
+                const totalTeams = teamsArray.length;
+                let start, end;
+
+                // Top 2 teams, show 5 below
+                if (currentTeamIndex <= 1) {
+                    start = 0; end = 5;
+                // Bottom 2 teams, show 5 above
+                } else if (currentTeamIndex >= totalTeams-2) {
+                    start = totalTeams - 5;
+                    end = totalTeams;
+                // All other teams, show 2 above and below.
+                } else {
+                    start = currentTeamIndex - 2;
+                    end = currentTeamIndex + 3;
+                }
+
                 const teamsToDisplay = teamsArray?.slice(start, end);
                 setSelectedTeams(teamsToDisplay);
             }

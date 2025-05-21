@@ -40,6 +40,9 @@
 .actualFlag {
     margin: 0 0 0 15px;
 }
+.navbar-login {
+    margin: 0 20px;
+}
 
 @media screen and (max-width: 992px) {
     /* .navbar-brand {

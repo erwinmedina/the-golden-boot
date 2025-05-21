@@ -1,8 +1,7 @@
 import "./GetAllMatches.css"
-
 import MatchesCard from "./MatchesCard";
 import { useEffect } from "react"
-
+import LeagueTitleAndYear from "../MatchesAndTeamsPages/LeagueTitleAndYear";
 
 export default function GetAllMatches({id, seasonID, teamArray, allMatches, matchday, setMatchday, filteredMatches, setFilteredMatches, numOfMatchesArray, filter}) {
 
@@ -25,14 +24,9 @@ export default function GetAllMatches({id, seasonID, teamArray, allMatches, matc
 
     return (
         <div className="container">
-            <h1 className="seasonTitle">
-                {allMatches.length >= 1 && allMatches[0].competition.name}
-            </h1>
-            <h2 className="seasonYears">
-                Season {seasonID} - {seasonID+1}
-            </h2>
+            <LeagueTitleAndYear allMatches={allMatches} seasonID={seasonID}/>
             <div className="selectOption">
-                <select className="form-select" onChange={handleMatchday} name="matchdays" id="matchdays">
+                <select className="form-select" onChange={handleMatchday} name="matchdays" id="matchdays" value={matchday}>
                     {numOfMatchesArray.length && numOfMatchesArray.map(number =>
                         <option value={number}>Matchday {number}</option>
                     )}

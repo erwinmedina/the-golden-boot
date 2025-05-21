@@ -1,10 +1,22 @@
 import "./Navbar.css";
 import "../../Pages/App/App.css"
 import { Link, useLocation } from 'react-router-dom';
+import { getAuth, signOut } from 'firebase/auth';
+import { useAuth } from "../../Contexts/AuthContext";
 
 export default function Navbar({ setId, setSeasonID }) {
     const location = useLocation();
     const isHomePage = location.pathname === '/';
+    const auth = getAuth();
+    const { user } = useAuth();
+
+    const handleSignOut = async () => {
+        try {
+            await signOut(auth);
+        } catch (error) {
+            console.error("Error signing out..", error)
+        }
+    };
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -14,7 +26,7 @@ export default function Navbar({ setId, setSeasonID }) {
             </button>
             
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul className="navbar-nav">
+            <ul className="navbar-nav me-auto">
                 <li className="nav-item">
                     <Link className="nav-link" to="/matches">Matches</Link>
                 </li>
@@ -48,6 +60,25 @@ export default function Navbar({ setId, setSeasonID }) {
                     </div>
                 </li>
             </ul>
+            {/* <ul className="navbar-nav navbar-login">
+                { user ? 
+                    <>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome, {user.displayName || "User"}!</a>
+                            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
+                                <Link className="dropdown-item" onClick={handleSignOut}>Log Out</Link>
+                            </div>
+                        </li>
+                    </>
+                    :
+                    <>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/registration">Log In</Link>
+                        </li>
+                    </>
+                }
+            </ul> */}
         </div>
       </nav> 
     )

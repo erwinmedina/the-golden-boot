@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import "./GetAllMatches.css"
 import "./GetTeamMatches.css"
+import LeagueTitleAndYear from "../MatchesAndTeamsPages/LeagueTitleAndYear";
 
 export default function MatchesHeader({id, seasonID, teamArray, allMatches, filteredMatches, setFilteredMatches, team, setTeam}) {
 
@@ -23,12 +24,7 @@ export default function MatchesHeader({id, seasonID, teamArray, allMatches, filt
 
     return (
         <div className="container">
-            <h1 className="seasonTitle">
-                {allMatches.length >= 1 && allMatches[0].competition.name}
-            </h1>
-            <h2 className="seasonYears">
-                Season {seasonID} - {seasonID+1}
-            </h2>
+            <LeagueTitleAndYear allMatches={allMatches} seasonID={seasonID}/>
             <div className="selectOption">
                 <select className="form-select" onChange={handleTeam} name="team" id="team">
                     {teamArray && teamArray.map(team =>

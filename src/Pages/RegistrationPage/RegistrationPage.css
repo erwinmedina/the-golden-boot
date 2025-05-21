@@ -1,0 +1,21 @@
+.registration {
+    font-family: "Sriracha"
+}
+.registration-box > div {
+    margin: 0 auto;
+}
+
+.google_logo {
+    height: 20px;
+    width: 20px;
+    margin: 0 10px;
+}
+.signup {
+    display: block !important;
+    padding-left: 0 !important;
+    text-align: left;
+    color: rgba(0,0,0,.7);
+}
+.signupReqs {
+    color: rgba(0,0,0,.3);
+}

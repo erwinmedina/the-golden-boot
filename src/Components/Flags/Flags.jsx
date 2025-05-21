@@ -42,7 +42,7 @@ const countryFlags = {
   Colombia: 'co',
   Comoros: 'km',
   CongoBrazzaville: 'cg',
-  CongoKinshasa: 'cd',
+  DRCongo: 'cd',
   CostaRica: 'cr',
   Croatia: 'hr',
   Cuba: 'cu',

@@ -100,18 +100,14 @@
 }
 
 .matchday {
-    /* position: absolute; */
-    /* margin-bottom: 4rem; */
     justify-content: space-around;
     font-size: 15px;
     font-weight: normal;
-    /* font-style: italic; */
     font-family: "Sriracha";
     color: white;
 }
 
 .halfTime {
-    position: absolute;
     font-size: 15px;
     font-weight: normal;
     font-style: italic;
@@ -127,7 +123,6 @@
     display: flex;
     flex-direction: column;
     width: 60%;
-    /* padding: 10px; */
     border-radius: 10px;
     margin: 10px 0;
     border: 3px rgba(0,0,0,1) solid;
@@ -137,9 +132,6 @@
 .hidden {
     display: none;
 }
-
-
-
 
 @media screen and (max-width: 1000px) {
     .matchesCardContainer {

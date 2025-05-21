@@ -59,8 +59,8 @@ export default function MatchesCard({index, teamArray, match, matchday, filter})
                             <p className="fullTime">
                                 
                                 {match.score.fullTime.home == null ? " : " : <span>{match.score.fullTime.home} : {match.score.fullTime.away} </span>}
-                                {match.score.halfTime.home == null ? "" : <span className="halfTime"> Half: {match.score.halfTime.home} : {match.score.halfTime.away}</span>}
                             </p>
+                                {match.score.halfTime.home == null ? "" : <span className="halfTime"> Half: {match.score.halfTime.home} : {match.score.halfTime.away}</span>}
                         </div>
                     </div>
                     
