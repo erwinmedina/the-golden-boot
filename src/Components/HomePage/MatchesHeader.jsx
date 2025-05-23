@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import "./GetAllMatches.css"
 import "./GetTeamMatches.css"
+import "./MatchesHeader.css"
 import LeagueTitleAndYear from "../MatchesAndTeamsPages/LeagueTitleAndYear";
 
 export default function MatchesHeader({id, seasonID, teamArray, allMatches, filteredMatches, setFilteredMatches, team, setTeam}) {
@@ -23,9 +24,12 @@ export default function MatchesHeader({id, seasonID, teamArray, allMatches, filt
     }
 
     return (
-        <div className="container">
-            <LeagueTitleAndYear allMatches={allMatches} seasonID={seasonID}/>
+        <div className="matchesHeader">
+            <div className="matchesHeader_title">
+                <LeagueTitleAndYear allMatches={allMatches} seasonID={seasonID}/>
+            </div>
             <div className="selectOption">
+                <p>Select a team...</p>
                 <select className="form-select" onChange={handleTeam} name="team" id="team">
                     {teamArray && teamArray.map(team =>
                         <option value={team.name}>{team.shortName}</option>

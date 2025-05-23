@@ -1,4 +1,6 @@
-
+.getAllMatches {
+    height: 100%;
+}
 .selectOption {
     justify-content: center;
     margin: 2em auto;
@@ -9,7 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     text-align: center;
 }
@@ -18,6 +20,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100%;
 }
 
 @media screen and (max-width: 730px) {

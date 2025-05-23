@@ -3,6 +3,10 @@
     flex-direction: column;
     align-items: center;
 }
+.cardContainer {
+    height: 100%;
+    overflow: scroll;
+}
 
 .cardContainerHome, .cardContainerAway {
     display: flex;
@@ -35,7 +39,7 @@
 }
 
 .cardContainer > div:last-child{
-    margin: 0 0 100px 0;
+    margin: 0 0 30px 0;
 }
 
 .topMatchCard {
@@ -145,6 +149,11 @@
 @media screen and (max-width: 770px) {
     .matchCardName {
         display: none !important;
+    }
+    .cardContainer {
+        margin: 40px;
+        padding: 10px;
+        height: 700px;
     }
     .cardContainerHome, .cardContainerAway {
         justify-content: center;

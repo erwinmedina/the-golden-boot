@@ -5,7 +5,7 @@ export default function SmallStandings({ selectedTeams }) {
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 380);
 
     function splitForms(string) {
-        const newArray = string.split(",");
+        const newArray = string.split(",").reverse();
         const formsArray = [];
         for (let i = 0; i < newArray.length; i++) {
             if (newArray[i] == "W") {
@@ -34,20 +34,20 @@ export default function SmallStandings({ selectedTeams }) {
                         <tr>
                             <th className="overallText">#</th>
                             <th colSpan={1}></th>
+                            <th className="overallText">Points</th>
                             <th className="overallText">Goals</th>
                             <th className="overallText">GD</th>
-                            <th className="overallText">P</th>
                         </tr>
                         :
                         <tr>
                             <th className="overallText">#</th>
                             <th colSpan={1}></th>
+                            <th className="overallText">Points</th>
                             <th className="overallText">W</th>
                             <th className="overallText">D</th>
                             <th className="overallText">L</th>
                             <th className="overallText">Goals</th>
                             <th className="overallText">GD</th>
-                            <th className="overallText">P</th>
                         </tr>
                     }
                 </thead>
@@ -81,12 +81,12 @@ export default function SmallStandings({ selectedTeams }) {
                                         <td className="teamFormBalls teamNames">{ splitForms(team.form)}</td>
                                     </div>
                                 </div>
+                                <td className="overallText">{team.points}</td>
                                 <td className="overallText">{team.won}</td>
                                 <td className="overallText">{team.draw}</td>
                                 <td className="overallText">{team.lost}</td>
                                 <td className="overallText">{team.goalsFor}:{team.goalsAgainst}</td>
                                 <td className="overallText">{team.goalDifference}</td>
-                                <td className="overallText">{team.points}</td>
                             </tr>
                         )
                     )}

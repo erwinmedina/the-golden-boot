@@ -1,0 +1,14 @@
+.matchesPage {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+.matchesPageHeader {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.matchesPageTeams {
+    display: flex;
+    justify-content: center;
+}

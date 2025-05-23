@@ -18,16 +18,9 @@ export default function TeamsPage({id, seasonID}) {
     const [team, setTeam] = useState();
     const [squadInfo, setSquadInfo] = useState([])
     const [filterSquad, setFilterSquad] = useState([])
-    const [squadButton, setSquadButton] = useState(true);
-    const [formButton, setFormButton] = useState(true);
     const [selectedTeams, setSelectedTeams] = useState([]);
-
-    function handleButtonDisplay() {
-        setSquadButton(prevState => !prevState)
-    }
-    function handleFormDisplay() {
-        setFormButton(prevState => !prevState);
-    }
+    const [isSquadVisible, setIsSquadVisible] = useState(true);
+    const [isFormVisible, setIsFormVisible] = useState(true);
 
     useEffect(() => {
         async function fetchData() {
@@ -143,14 +136,6 @@ export default function TeamsPage({id, seasonID}) {
                     setTeam={setTeam}
                 />
             </div>
-            <div className="buttonBar">
-                <div className="teamsButton showFormButton">
-                    <button onClick={handleFormDisplay} className="btn btn-primary">{formButton ? "Hide":"Show"} Form</button>
-                </div>
-                <div className="teamsButton showSquadButton">
-                    <button onClick={handleButtonDisplay} className="btn btn-primary">{squadButton ? "Hide":"Show"} Squad</button>
-                </div>
-            </div>
             <div className="teamsPageinfo">
                 <div className="teamsPageMatches">
                     <GetTeamMatches
@@ -160,30 +145,36 @@ export default function TeamsPage({id, seasonID}) {
                         filter={'team'}
                     />
                 </div>
-                { squadButton || formButton ? 
-                    <div className="teamsPageMultiple">
-                        <div className="teamsPageSquad">
-                            {squadButton ? 
-                                <div>
-                                    <h1 className="teamSquadTitle">{filterSquad[0]?.shortName} Squad</h1>
-                                    <Squad filterSquad={filterSquad}/>
-                                </div>
-                            :
-                                ""
-                            }
+                <div className={`teamsPageMultiple ${isSquadVisible || isFormVisible ? '' : 'closed'}`}>
+                    <div className="teamsPageSquad">
+                        <div>
+                            <h1 className="teamSquadTitle squadToggle" onClick={() => setIsSquadVisible(prev => !prev)}>
+                                {filterSquad[0]?.shortName} Squad
+                                <svg
+                                    className={`arrowIcon ${isSquadVisible ? 'arrowDown' : 'arrowRight'}`}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    >
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </h1>
+                            {isSquadVisible && <Squad filterSquad={filterSquad}/>}
                         </div>
-                        {formButton ? 
-                            <div className="teamsPageForm">
-                                <h1 className="teamSquadTitle">Current Form</h1>        
-                                <SmallStandings selectedTeams={selectedTeams}/>
-                            </div>
-                            :
-                            ""  
-                        }
                     </div>
-                    :
-                    ""
-                }
+                    <div className="teamsPageForm">
+                        <h1 className="teamSquadTitle squadToggle" onClick={() => setIsFormVisible(prev => !prev)}>
+                            Current Form
+                            <svg
+                                className={`arrowIcon ${isFormVisible ? 'arrowDown' : 'arrowRight'}`}
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                >
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </h1>        
+                        {isFormVisible && <SmallStandings selectedTeams={selectedTeams}/>}
+                    </div>
+                </div>
             </div>
         </div>
     )

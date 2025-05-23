@@ -16,8 +16,33 @@
 }
 .teamsPageInfo {
     display: flex;
+    margin: 0 10px;
+}
+.squadToggle {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
+.arrowIcon {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    transition: transform 0.3s ease;
+}
+
+.arrowDown {
+    transform: rotate(0deg);
+}
+.arrowRight {
+    transform: rotate(-90deg);
+}
 .teamsPageMatches {
     width: 60%;
 }
@@ -28,10 +53,19 @@
     margin-top: 40px;
 }
 .teamsPageMultiple {
+    margin: 0 10px;
     padding: 20px;
     width: 40%;
     display: flex;
     flex-direction: column;
+    background: rgba(255,255,255,0.25);
+    border-radius: 40px;
+    max-height: 600px;
+    transition: max-height 0.3s ease;
+    overflow: scroll;
+}
+.teamsPageMultiple.closed {
+    max-height: 150px;
 }
 .teamsPageSmallStandings {
     margin: 20px 0;
@@ -39,6 +73,11 @@
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border: 2px solid #ffcc00;
+}
+.teamMatchesContainer {
+    background: rgba(255,255,255,0.25);
+    border-radius: 40px;
+    height: 100%;
 }
 #smallStandings {
     margin-bottom: 0;
@@ -75,7 +114,6 @@
 }
 .teamsButton {
     display: none;
-    margin-bottom: 30px;
     padding: 20px;
 }
 .teamsPageForm {
@@ -85,14 +123,14 @@
 @media screen and (min-width: 1050px) {
     .teamsPageMultiple {
         margin-top: 0;
-        height: 500px;
+        max-height: 600px;
         overflow: scroll;
     }
     .teamsPageSquad {
         margin-top: 0;
     }
     .teamsPageMatches {
-        height: 500px;
+        height: 600px;
         overflow: scroll;
     }
 }
@@ -116,13 +154,13 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+        margin: 0px;
     }
     .teamsPageForm {
         margin: 0 auto;
         width: 90%;
     }
     .teamsPageSquad {
-        margin-bottom: 50px;
         order: 1;
         width: 90%;
         position: relative;

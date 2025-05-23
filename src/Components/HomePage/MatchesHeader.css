@@ -1,0 +1,33 @@
+.matchesHeader_title {
+    width: 60%;
+}
+
+.MatchesHeader {
+    display: flex;
+    margin: 20px 0;
+}
+.selectOption {
+    margin: 0px;
+    width: 40%;
+    padding: 20px;
+}
+.selectOption > p {
+    color:#fff;
+    margin: 0;
+    font-size:10px;
+    font-family: "Sriracha";
+}
+
+@media screen and (max-width: 730px) {
+    .MatchesHeader {
+        flex-direction: column;
+        margin: 30px auto 10px auto;
+    }
+    .matchesHeader_title {
+        margin: 0 auto;
+    }
+    .selectOption {
+        margin: 0px auto;
+        padding: 5px;
+    }
+}

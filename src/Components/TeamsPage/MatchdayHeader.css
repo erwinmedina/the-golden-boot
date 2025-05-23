@@ -1,0 +1,33 @@
+.MatchdayHeader {
+    display: flex;
+    /* flex-direction: column; */
+    margin: 20px 0;
+}
+.matchdaySelectOption {
+    margin: 0px 100px;
+    width: 300px;
+    padding: 20px;
+}
+.matchdaySelectOption > select {
+    text-align: center;
+}
+.matchdaySelectOption > p {
+    color:#fff;
+    margin: 0;
+    font-size:10px;
+    font-family: "Sriracha";
+}
+
+@media screen and (max-width: 730px) {
+    .MatchdayHeader {
+        flex-direction: column;
+        margin: 30px auto 10px auto;
+    }
+    .matchdayHeader_title {
+        margin: 0 auto;
+    }
+    .matchdaySelectOption {
+        margin: 0px auto;
+        padding: 5px;
+    }
+}

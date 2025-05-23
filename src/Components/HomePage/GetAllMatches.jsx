@@ -2,6 +2,7 @@ import "./GetAllMatches.css"
 import MatchesCard from "./MatchesCard";
 import { useEffect } from "react"
 import LeagueTitleAndYear from "../MatchesAndTeamsPages/LeagueTitleAndYear";
+import GetTeamMatches from "../../Components/HomePage/GetTeamMatches";
 
 export default function GetAllMatches({id, seasonID, teamArray, allMatches, matchday, setMatchday, filteredMatches, setFilteredMatches, numOfMatchesArray, filter}) {
 
@@ -23,8 +24,10 @@ export default function GetAllMatches({id, seasonID, teamArray, allMatches, matc
     }, [allMatches, id, matchday])
 
     return (
-        <div className="container">
-            <LeagueTitleAndYear allMatches={allMatches} seasonID={seasonID}/>
+        <div className="getAllMatches container">
+            <div className="matchesHeader_title">
+                <LeagueTitleAndYear allMatches={allMatches} seasonID={seasonID}/>
+            </div>
             <div className="selectOption">
                 <select className="form-select" onChange={handleMatchday} name="matchdays" id="matchdays" value={matchday}>
                     {numOfMatchesArray.length && numOfMatchesArray.map(number =>
@@ -32,12 +35,12 @@ export default function GetAllMatches({id, seasonID, teamArray, allMatches, matc
                     )}
                 </select>
             </div>
-            
-            <div className="cardContainer">
-                {filteredMatches.length && filteredMatches.map((match, index) => (
-                    <MatchesCard index={index} teamArray={teamArray} match={match} matchday={matchday} filter={filter}/>
-                ))}
-            </div>
+            <GetTeamMatches
+                teamArray={teamArray}
+                filteredMatches={filteredMatches}
+                matchday={matchday}
+                filter={'team'}
+            />
         </div>
     )
 }

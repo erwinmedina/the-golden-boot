@@ -1,6 +1,9 @@
-import GetAllMatches from "../../Components/HomePage/GetAllMatches";
 import { useEffect, useState } from "react"
 import { PulseLoader } from "react-spinners";
+import GetTeamMatches from "../../Components/HomePage/GetTeamMatches";
+import MatchdayHeader from "../../Components/TeamsPage/MatchdayHeader";
+import "../../Components/HomePage/GetAllMatches.css"
+import "./MatchesPage.css"
 
 export default function MatchesPage({id, seasonID}) {
     const [loading, setLoading] = useState(true);
@@ -50,6 +53,23 @@ export default function MatchesPage({id, seasonID}) {
         }
         allTeamNames();
     }, [allTeamInfo]);
+    
+    function handleMatchday(event) {
+        setMatchday(event.target.value);
+    }
+
+    useEffect(function() {
+        async function filterMatches() {
+            setFilteredMatches([])
+            if (allMatches.length) {
+                for (let i = 0; i < allMatches[0].matches.length; i++) {
+                    if (allMatches[0].matches[i].matchday == matchday) {
+                        setFilteredMatches(filteredMatches => [...filteredMatches, allMatches[0].matches[i]])
+                    }
+                }}
+        }
+        filterMatches();
+    }, [allMatches, id, matchday])
 
     if (loading) {
         return (
@@ -58,21 +78,29 @@ export default function MatchesPage({id, seasonID}) {
             </div>
         )
     }
+    
 
     return (
-        <div>
-            <GetAllMatches 
-                id={id} 
-                seasonID={seasonID}
-                teamArray={teamArray}
-                allMatches={allMatches} 
-                setAllMatches={setAllMatches}
-                matchday={matchday}
-                setMatchday={setMatchday}
-                filteredMatches={filteredMatches}
-                setFilteredMatches={setFilteredMatches}
-                numOfMatchesArray={numOfMatchesArray}
-            /> 
+        <div className="matchesPage">
+            <div className="matchesPageHeader">
+                <MatchdayHeader
+                    allMatches={allMatches}
+                    seasonID={seasonID}
+                    numOfMatchesArray={numOfMatchesArray}
+                    matchday={matchday}
+                    setMatchday={setMatchday}
+                />
+            </div>
+            <div className="matchesPageTeams teamsPageinfo">
+                <div className="teamsPageMatches">
+                    <GetTeamMatches
+                        teamArray={teamArray}
+                        filteredMatches={filteredMatches}
+                        matchday={matchday}
+                        filter={'team'}
+                    />
+                </div>
+            </div>
         </div>
     )
 }
