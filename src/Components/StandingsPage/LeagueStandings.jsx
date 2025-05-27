@@ -1,6 +1,16 @@
 
 
 export default function LeagueStandings({standings, isSmallScreen}) {
+    
+    // Some math for checking if first place team is mathemtically the winner. //
+    const sortedStandings = standings.standings[0].table
+    const firstPlacedTeam = sortedStandings[0];
+    const firstHasWonLeague = sortedStandings.slice(1).every(team => {
+        const gamesLeft = standings.season.currentMatchday - team.playedGames
+        const maxPossiblePoints = team.points + (gamesLeft*3)
+        return firstPlacedTeam.points > maxPossiblePoints;
+    })
+
     return (
     <div className="homePageStandingsContainer tableStats">
         <h2>{Object.keys(standings)?.length && standings?.competition.name} Standings</h2>
@@ -28,7 +38,13 @@ export default function LeagueStandings({standings, isSmallScreen}) {
                 <tbody>
                     {Object.keys(standings).length && standings.standings[0].table.map(team => 
                         <tr className="tableRow">
-                            <td className="tableCSS">{team.position}</td>
+                            <td className="tableCSS">
+                                {team.position === 1 && firstHasWonLeague ? (
+                                    <img src={"https://cdn-icons-png.flaticon.com/512/11167/11167978.png"} alt="Champion" style={{ width: 20, height: 20 }} />
+                                ) : 
+                                    team.position
+                                }
+                            </td>
                             <td className="teamImg"><img alt="stuff" src={team.team.crest}/></td>
                             <td className="tableCSS teamName">{isSmallScreen ? team.team.shortName : team.team.name}</td>
                             <td className="tableCSS teamStats">{team.playedGames}</td>
