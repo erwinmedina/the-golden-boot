@@ -6,6 +6,7 @@
 .cardContainer {
     height: 100%;
     overflow: scroll;
+    margin-top: 20px;
 }
 
 .cardContainerHome, .cardContainerAway {
@@ -91,6 +92,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+        margin-top: 20px;
 }
 
 .fullTime {
@@ -151,9 +153,9 @@
         display: none !important;
     }
     .cardContainer {
-        margin: 40px;
         padding: 10px;
         height: 700px;
+        margin-top: 20px;
     }
     .cardContainerHome, .cardContainerAway {
         justify-content: center;

@@ -17,6 +17,7 @@
 .teamsPageInfo {
     display: flex;
     margin: 0 10px;
+    overflow: scroll;
 }
 .squadToggle {
     cursor: pointer;
@@ -45,6 +46,14 @@
 }
 .teamsPageMatches {
     width: 60%;
+    background: rgba(255,255,255,0.25);
+    border-radius: 40px;
+    padding: 20px;
+    max-height: 600px;
+}
+.teamsPageForm {
+    max-height: 600px;
+    transition: max-height 0.3s ease;
 }
 .teamsPageSquad {
     top: 60; 
@@ -52,17 +61,28 @@
     width: 100%;
     margin-top: 40px;
 }
-.teamsPageMultiple {
-    margin: 0 10px;
-    padding: 20px;
+.teamsPageFormAndStandings {
     width: 40%;
-    display: flex;
-    flex-direction: column;
+}
+.teamsPageContainer {
+    border-radius: 40px;
+    width: 40%;
+    max-height: 600px;
+    overflow: scroll;
+}
+
+.teamsPageMultiple {
+    margin: 10px;
+    padding: 20px;
     background: rgba(255,255,255,0.25);
     border-radius: 40px;
     max-height: 600px;
     transition: max-height 0.3s ease;
     overflow: scroll;
+}
+.teamsPageForm.closed {
+    max-height: 150px;
+    transition: max-height 0.3s ease;
 }
 .teamsPageMultiple.closed {
     max-height: 150px;
@@ -74,11 +94,7 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border: 2px solid #ffcc00;
 }
-.teamMatchesContainer {
-    background: rgba(255,255,255,0.25);
-    border-radius: 40px;
-    height: 100%;
-}
+
 #smallStandings {
     margin-bottom: 0;
 }
@@ -116,9 +132,7 @@
     display: none;
     padding: 20px;
 }
-.teamsPageForm {
-    margin-top: 30px;
-}
+
 
 @media screen and (min-width: 1050px) {
     .teamsPageMultiple {
@@ -130,7 +144,6 @@
         margin-top: 0;
     }
     .teamsPageMatches {
-        height: 600px;
         overflow: scroll;
     }
 }
@@ -154,11 +167,12 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        margin: 0px;
+        margin: 10px 0;
     }
     .teamsPageForm {
         margin: 0 auto;
         width: 90%;
+        transition: max-height 0.3s ease;
     }
     .teamsPageSquad {
         order: 1;
@@ -180,5 +194,16 @@
     .teamsPageForm {
         margin: 0 auto;
         width: 100%;
+    }
+    .teamsPageSmallStandings {
+        margin: 10px 0;
+    }
+    .teamsPageContainer {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .teamsPageMatches {
+        width: 100%;
+        margin: 0 auto;
     }
 }

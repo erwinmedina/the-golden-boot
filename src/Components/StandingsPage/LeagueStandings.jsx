@@ -3,13 +3,16 @@
 export default function LeagueStandings({standings, isSmallScreen}) {
     
     // Some math for checking if first place team is mathemtically the winner. //
-    const sortedStandings = standings.standings[0].table
-    const firstPlacedTeam = sortedStandings[0];
-    const firstHasWonLeague = sortedStandings.slice(1).every(team => {
-        const gamesLeft = standings.season.currentMatchday - team.playedGames
-        const maxPossiblePoints = team.points + (gamesLeft*3)
-        return firstPlacedTeam.points > maxPossiblePoints;
-    })
+    let firstHasWonLeague = false;
+    const sortedStandings = standings?.standings?.[0]?.table;
+    if (sortedStandings && sortedStandings.length > 0 && standings.season.currentMatchday != null) {
+        const firstPlacedTeam = sortedStandings[0];
+        firstHasWonLeague = sortedStandings.slice(1).every(team => {
+            const gamesLeft = standings.season.currentMatchday - team.playedGames
+            const maxPossiblePoints = team.points + (gamesLeft*3)
+            return firstPlacedTeam.points > maxPossiblePoints;
+        })
+    }
 
     return (
     <div className="homePageStandingsContainer tableStats">

@@ -1,5 +1,5 @@
 import "./SmallStandings.css"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function SmallStandings({ selectedTeams }) {
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 380);
@@ -21,11 +21,15 @@ export default function SmallStandings({ selectedTeams }) {
         return formsArray
     }
 
-    const handleResize = () => {
-        setIsSmallScreen(window.innerWidth < 600);
-    };
-    window.addEventListener('resize', handleResize);
-    
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth < 600);
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <div className="teamsPageSmallStandings">
             <table id="smallStandings" className="table table-striped table-dark">
@@ -36,7 +40,6 @@ export default function SmallStandings({ selectedTeams }) {
                             <th colSpan={1}></th>
                             <th className="overallText">Points</th>
                             <th className="overallText">Goals</th>
-                            <th className="overallText">GD</th>
                         </tr>
                         :
                         <tr>
@@ -65,9 +68,8 @@ export default function SmallStandings({ selectedTeams }) {
                                         <td className="teamFormBalls teamNames">{ splitForms(team.form)}</td>
                                     </div>
                                 </div>
-                                <td className="overallText">{team.goalsFor}:{team.goalsAgainst}</td>
-                                <td className="overallText">{team.goalDifference}</td>
                                 <td className="overallText">{team.points}</td>
+                                <td className="overallText">{team.goalsFor}:{team.goalsAgainst}</td>
                             </tr>
                             :
                             <tr>

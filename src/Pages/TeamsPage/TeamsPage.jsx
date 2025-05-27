@@ -21,6 +21,7 @@ export default function TeamsPage({id, seasonID}) {
     const [selectedTeams, setSelectedTeams] = useState([]);
     const [isSquadVisible, setIsSquadVisible] = useState(true);
     const [isFormVisible, setIsFormVisible] = useState(true);
+    const [areGamesVisible, setAreGameVisible] = useState(true);
 
     useEffect(() => {
         async function fetchData() {
@@ -77,10 +78,10 @@ export default function TeamsPage({id, seasonID}) {
                 const totalTeams = teamsArray.length;
                 let start, end;
 
-                // Top 2 teams, show 5 below
+                // Top 2 teams, shows top 5
                 if (currentTeamIndex <= 1) {
                     start = 0; end = 5;
-                // Bottom 2 teams, show 5 above
+                // Bottom 2 teams, show bottom 5
                 } else if (currentTeamIndex >= totalTeams-2) {
                     start = totalTeams - 5;
                     end = totalTeams;
@@ -122,6 +123,7 @@ export default function TeamsPage({id, seasonID}) {
             </div>
         )
     }
+
     return (
         <div className="teamsPage">
             <div className="teamsPageHeader">
@@ -136,43 +138,61 @@ export default function TeamsPage({id, seasonID}) {
                     setTeam={setTeam}
                 />
             </div>
+
             <div className="teamsPageinfo">
                 <div className="teamsPageMatches">
-                    <GetTeamMatches
-                        teamArray={teamArray}
-                        filteredMatches={filteredMatches}
-                        matchday={matchday}
-                        filter={'team'}
-                    />
-                </div>
-                <div className={`teamsPageMultiple ${isSquadVisible || isFormVisible ? '' : 'closed'}`}>
-                    <div className="teamsPageSquad">
-                        <div>
-                            <h1 className="teamSquadTitle squadToggle" onClick={() => setIsSquadVisible(prev => !prev)}>
-                                {filterSquad[0]?.shortName} Squad
-                                <svg
-                                    className={`arrowIcon ${isSquadVisible ? 'arrowDown' : 'arrowRight'}`}
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    >
-                                    <polyline points="6 9 12 15 18 9" />
-                                </svg>
-                            </h1>
-                            {isSquadVisible && <Squad filterSquad={filterSquad}/>}
-                        </div>
-                    </div>
-                    <div className="teamsPageForm">
-                        <h1 className="teamSquadTitle squadToggle" onClick={() => setIsFormVisible(prev => !prev)}>
-                            Current Form
+                    <div className={`teamsPageForm ${areGamesVisible ? '' : 'closed'}`}>
+                        <h1 className="teamSquadTitle squadToggle" onClick={() => setAreGameVisible(prev => !prev)}>
+                            Matchdays
                             <svg
-                                className={`arrowIcon ${isFormVisible ? 'arrowDown' : 'arrowRight'}`}
+                                className={`arrowIcon ${areGamesVisible ? 'arrowDown' : 'arrowRight'}`}
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                                 >
                                 <polyline points="6 9 12 15 18 9" />
                             </svg>
-                        </h1>        
-                        {isFormVisible && <SmallStandings selectedTeams={selectedTeams}/>}
+                        </h1>
+                        {areGamesVisible && <GetTeamMatches
+                            teamArray={teamArray}
+                            filteredMatches={filteredMatches}
+                            matchday={matchday}
+                            filter={'team'}
+                        />}
+                    </div>
+                </div>
+                <div className={`teamsPageContainer`}>
+                    <div className={`teamsPageMultiple ${isFormVisible ? '' : 'closed'}`}>
+                        <div className="teamsPageForm">
+                            <h1 className="teamSquadTitle squadToggle" onClick={() => setIsFormVisible(prev => !prev)}>
+                                Current Form
+                                <svg
+                                    className={`arrowIcon ${isFormVisible ? 'arrowDown' : 'arrowRight'}`}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    >
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </h1>        
+                            {isFormVisible && <SmallStandings selectedTeams={selectedTeams}/>}
+                        </div>
+                    </div>
+
+                    <div className={`teamsPageMultiple ${isSquadVisible ? '' : 'closed'}`}>
+                        <div className="teamsPageSquad">
+                            <div>
+                                <h1 className="teamSquadTitle squadToggle" onClick={() => setIsSquadVisible(prev => !prev)}>
+                                    {filterSquad[0]?.shortName} Squad
+                                    <svg
+                                        className={`arrowIcon ${isSquadVisible ? 'arrowDown' : 'arrowRight'}`}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        >
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
+                                </h1>
+                                {isSquadVisible && <Squad filterSquad={filterSquad}/>}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

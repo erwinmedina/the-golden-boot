@@ -6,6 +6,7 @@
     overflow: auto;
     width: 100%;
     position: relative;
+    margin-top: 10px;
 }
 .imageHolder {
     position: absolute;
@@ -37,10 +38,10 @@
 }
 .teamSquadTitle {
     font-family: "Sriracha";
-    /* margin-bottom: 20px; */
     color: white;
     font-size: 1.5rem;
     justify-content: center;
+    margin-bottom: 0;
 }
 .playerText {
     text-align: center;
