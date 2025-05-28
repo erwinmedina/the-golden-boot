@@ -4,6 +4,7 @@ import GetTeamMatches from "../../Components/HomePage/GetTeamMatches";
 import MatchdayHeader from "../../Components/TeamsPage/MatchdayHeader";
 import "../../Components/HomePage/GetAllMatches.css"
 import "./MatchesPage.css"
+import Footer from "../../Components/HomePage/Footer";
 
 export default function MatchesPage({id, seasonID}) {
     const [loading, setLoading] = useState(true);
@@ -101,6 +102,7 @@ export default function MatchesPage({id, seasonID}) {
                     />
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

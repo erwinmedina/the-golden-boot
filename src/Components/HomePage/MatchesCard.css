@@ -154,7 +154,7 @@
     }
     .cardContainer {
         padding: 10px;
-        height: 700px;
+        max-height: 600px;
         margin-top: 20px;
     }
     .cardContainerHome, .cardContainerAway {

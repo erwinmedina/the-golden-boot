@@ -1,0 +1,19 @@
+.footer {
+    margin-top: 50px;
+    color: white;
+    font-family: "Sriracha";
+}
+.footerIcons {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+.footerIcons > a {
+    text-decoration: none;
+}
+.footerIcons > a > i {
+    font-size: 40px;
+    margin: 0 15px;
+    color: white;
+}

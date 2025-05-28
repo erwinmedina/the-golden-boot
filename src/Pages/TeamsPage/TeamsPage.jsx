@@ -5,6 +5,7 @@ import "./TeamsPage.css";
 import Squad from "../../Components/HomePage/Squad";
 import MatchesHeader from "../../Components/HomePage/MatchesHeader";
 import SmallStandings from "../../Components/HomePage/SmallStandings";
+import Footer from "../../Components/HomePage/Footer";
 
 export default function TeamsPage({id, seasonID}) {
     const [loading, setLoading] = useState(true);
@@ -196,6 +197,7 @@ export default function TeamsPage({id, seasonID}) {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

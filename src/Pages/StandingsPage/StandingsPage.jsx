@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import GetStandings from "../../Components/HomePage/GetStandings";
+import Footer from "../../Components/HomePage/Footer";
 
 export default function StandingsPage({id, seasonID}) {
     const [standings, setStandings] = useState({});
@@ -37,6 +38,7 @@ export default function StandingsPage({id, seasonID}) {
                 goalScorers={goalScorers}
                 comp={comp}
             />
+            <Footer/>
         </div>
     )
 }

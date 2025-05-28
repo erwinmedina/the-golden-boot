@@ -24,9 +24,20 @@
     font-size: 80px;
     text-shadow: 5px 5px 3px #000000;
 }
-
 .features {
-    margin: 50px auto;
+    margin-top: 50px;
+}
+.featuresHeader {
+    height: 100px;
+}
+.featuresHeader > h1 {
+    line-height: 50px;
+    color: white;
+    font-family: "sriracha";
+    text-align: center;
+}
+.featuresCards {
+    margin: 0 auto;
     height: 100%;
     width: 80%;
     display: grid;
@@ -85,8 +96,9 @@ transform: rotate(-45deg);
     margin: 0 10px 0 0;
 }
 
+
 @media screen and (max-width: 1200px) {
-    .features {
+    .featuresCards {
         width: 70%;
         grid-template-columns: repeat(2,minmax(0,1fr));
     }
@@ -97,7 +109,7 @@ transform: rotate(-45deg);
     }
 }
 @media screen and (max-width: 900px) {
-    .features {
+    .featuresCards {
         grid-template-columns: repeat(1,minmax(0,1fr));
     }
 }

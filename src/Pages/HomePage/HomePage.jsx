@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import "./HomePage.css";
-
+import Footer from '../../Components/HomePage/Footer';
 
 export default function HomePage() {
     return (
@@ -12,82 +12,89 @@ export default function HomePage() {
                 </div>
             </div>
             <div className="features">
-                <div className="card coverage">
-                    <img className="card-img-top" src="https://i.imgur.com/ijVcQYQ.jpeg" alt="" />
-                    <div className="card-body coverageDetails">
-                        <p className="card-title">Matches</p>
-                        <p className="card-text"> Here you can filter by matchday, allowing you to quickly see the teams you're going up against or check out the results of previous games.</p>
-                        <div className="coverageDetailsButton">
-                            <Link className="cardButton btn btn-primary" to="/matches">Check it out <i className="arrow right"></i></Link>
-                        </div>
-                    </div>
+                <div className="featuresHeader">
+                    <h1>What We Provide..</h1>
+                    <hr></hr>
                 </div>
-                <div className="card coverage">
-                    <img className="card-img-top" src="https://i.imgur.com/fUgLxtB.jpeg" alt="" />
-                    <div className="card-body coverageDetails">
-                        <p className="card-title">Teams</p>
-                        <p className="card-text"> This is the place to filter by your favorite team and see all upcoming (and previous) matches for that specific team!</p>
-                        <Link className="cardButton btn btn-primary" to="/teams">Check it out <i className="arrow right"></i></Link>
-                    </div>
-                </div>
-                <div className="card coverage">
-                    <img className="card-img-top" src="https://i.imgur.com/3JUdZ2X.jpeg" alt="" />
-                    <div className="card-body coverageDetails">
-                        <p className="card-title">Standings</p>
-                        <p className="card-text"> Want to see how your team is performing? Check out the standings and where they are in the league table. Also check out who's the leading goal scorers!</p>
-                        <Link className="cardButton btn btn-primary" to="/standings">Check it out <i className="arrow right"></i></Link>
-                    </div>
-                </div>
-                <div className="card coverage">
-                    <img className="card-img-top" src="https://i.imgur.com/HwoYFNe.jpeg" alt="" />
-                    <div className="card-body coverageDetails">
-                        <p className="card-title">League Coverage</p>
-                        <div className="leagueCoverage card-text">
-                            <div className="league">
-                                <div>🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
-                                <div>Premier League</div>
-                            </div>
-                            <div className="league">
-                                <div>🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
-                                <div>Championship</div>
-                            </div>
-                            <div className="league">
-                                <div>🇪🇸</div>
-                                <div>La Liga</div>
-                            </div>
-                            <div className="league">
-                                <div>🇩🇪</div>
-                                <div>Bundesliga</div>
-                            </div>
-                            <div className="league">
-                                <div>🇮🇹</div>
-                                <div>Serie A</div>
-                            </div>
-                            <div className="league">
-                                <div>🇫🇷</div>
-                                <div>Ligue 1</div>
-                            </div>
-                            <div className="league">
-                                <div>🇵🇹</div>
-                                <div>Premeira Liga</div>
+                <div className="featuresCards">
+                    <div className="card coverage">
+                        <img className="card-img-top" src="https://i.imgur.com/ijVcQYQ.jpeg" alt="" />
+                        <div className="card-body coverageDetails">
+                            <p className="card-title">Matches</p>
+                            <p className="card-text"> Here you can filter by matchday, allowing you to quickly see the teams you're going up against or check out the results of previous games.</p>
+                            <div className="coverageDetailsButton">
+                                <Link className="cardButton btn btn-primary" to="/matches">Check it out <i className="arrow right"></i></Link>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="card coverage">
-                    <img className="card-img-top" src="https://i.imgur.com/i7hbeMI.jpeg" alt="" />
-                    <div className="card-body coverageDetails">
-                        <p className="card-title">Features</p>
-                        <p className="card-text">
-                            <div>- Filter for match days</div>
-                            <div>- Filter for your favorite teams</div>
-                            <div>- Check out league standings</div>
-                            <div>- See leading goal scorers</div>
-                            <div>- Adjust the season year</div>
-                        </p>
+                    <div className="card coverage">
+                        <img className="card-img-top" src="https://i.imgur.com/fUgLxtB.jpeg" alt="" />
+                        <div className="card-body coverageDetails">
+                            <p className="card-title">Teams</p>
+                            <p className="card-text"> This is the place to filter by your favorite team and see all upcoming (and previous) matches for that specific team!</p>
+                            <Link className="cardButton btn btn-primary" to="/teams">Check it out <i className="arrow right"></i></Link>
+                        </div>
+                    </div>
+                    <div className="card coverage">
+                        <img className="card-img-top" src="https://i.imgur.com/3JUdZ2X.jpeg" alt="" />
+                        <div className="card-body coverageDetails">
+                            <p className="card-title">Standings</p>
+                            <p className="card-text"> Want to see how your team is performing? Check out the standings and where they are in the league table. Also check out who's the leading goal scorers!</p>
+                            <Link className="cardButton btn btn-primary" to="/standings">Check it out <i className="arrow right"></i></Link>
+                        </div>
+                    </div>
+                    <div className="card coverage">
+                        <img className="card-img-top" src="https://i.imgur.com/HwoYFNe.jpeg" alt="" />
+                        <div className="card-body coverageDetails">
+                            <p className="card-title">League Coverage</p>
+                            <div className="leagueCoverage card-text">
+                                <div className="league">
+                                    <div>🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+                                    <div>Premier League</div>
+                                </div>
+                                <div className="league">
+                                    <div>🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+                                    <div>Championship</div>
+                                </div>
+                                <div className="league">
+                                    <div>🇪🇸</div>
+                                    <div>La Liga</div>
+                                </div>
+                                <div className="league">
+                                    <div>🇩🇪</div>
+                                    <div>Bundesliga</div>
+                                </div>
+                                <div className="league">
+                                    <div>🇮🇹</div>
+                                    <div>Serie A</div>
+                                </div>
+                                <div className="league">
+                                    <div>🇫🇷</div>
+                                    <div>Ligue 1</div>
+                                </div>
+                                <div className="league">
+                                    <div>🇵🇹</div>
+                                    <div>Premeira Liga</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="card coverage">
+                        <img className="card-img-top" src="https://i.imgur.com/i7hbeMI.jpeg" alt="" />
+                        <div className="card-body coverageDetails">
+                            <p className="card-title">Features</p>
+                            <p className="card-text">
+                                <div>- Filter for match days</div>
+                                <div>- Filter for your favorite teams</div>
+                                <div>- Check out league standings</div>
+                                <div>- See leading goal scorers</div>
+                                <div>- Adjust the season year</div>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }
