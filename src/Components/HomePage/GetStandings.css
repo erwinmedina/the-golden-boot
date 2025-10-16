@@ -166,6 +166,12 @@ hr {
     border: 2px solid #ffcc00;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,1);
+    scrollbar-color: transparent transparent;
+    scrollbar-width: thin;
+    --scrollbar-background: var(--styled-scrollbar-background, var(--shreddit-content-background));
+}
+.previousWinnersTable.visible, .previousWinnersTable:hover {
+    scrollbar-color: var(--color-neutral-border) transparent;
 }
 .table {
     margin-bottom: 0.2rem;

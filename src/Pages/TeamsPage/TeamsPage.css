@@ -17,7 +17,7 @@
 .teamsPageInfo {
     display: flex;
     margin: 0 10px;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 .squadToggle {
     cursor: pointer;
@@ -46,7 +46,7 @@
 }
 .teamsPageMatches {
     width: 60%;
-    background: rgba(255,255,255,0.25);
+    /* background: rgba(255,255,255,0.25); */
     border-radius: 40px;
     padding: 20px;
     max-height: 600px;
@@ -66,19 +66,17 @@
 }
 .teamsPageContainer {
     border-radius: 40px;
-    width: 40%;
     max-height: 600px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .teamsPageMultiple {
     margin: 10px;
     padding: 20px;
-    background: rgba(255,255,255,0.25);
+    /* background: rgba(255,255,255,0.25); */
     border-radius: 40px;
     max-height: 600px;
     transition: max-height 0.3s ease;
-    overflow: scroll;
 }
 .teamsPageForm.closed {
     max-height: 150px;
@@ -138,13 +136,12 @@
     .teamsPageMultiple {
         margin-top: 0;
         max-height: 600px;
-        overflow: scroll;
     }
     .teamsPageSquad {
         margin-top: 0;
     }
     .teamsPageMatches {
-        overflow: scroll;
+        /* overflow: scroll; */
     }
 }
 
@@ -205,6 +202,6 @@
     .teamsPageMatches {
         width: 100%;
         margin: 0 auto;
-        overflow: scroll;
+        /* overflow: scroll; */
     }
 }

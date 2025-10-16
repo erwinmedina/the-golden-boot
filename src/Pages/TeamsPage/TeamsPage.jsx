@@ -161,7 +161,7 @@ export default function TeamsPage({id, seasonID}) {
                         />}
                     </div>
                 </div>
-                <div className={`teamsPageContainer`}>
+                <div className={`teamsPageContainer no-scrollbar`}>
                     <div className={`teamsPageMultiple ${isFormVisible ? '' : 'closed'}`}>
                         <div className="teamsPageForm">
                             <h1 className="teamSquadTitle squadToggle" onClick={() => setIsFormVisible(prev => !prev)}>

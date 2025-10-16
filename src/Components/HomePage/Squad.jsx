@@ -44,7 +44,7 @@ export default function Squad( { filterSquad }) {
     }
 
     return (
-        <div className="container squadTable">
+        <div className="container squadTable no-scrollbar">
             <div className="imageHolder">
                 <img src={`${filterSquad[0]?.crest}`}/>
             </div>

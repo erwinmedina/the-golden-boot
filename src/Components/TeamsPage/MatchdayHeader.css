@@ -1,6 +1,6 @@
 .MatchdayHeader {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     margin: 20px 0;
 }
 .matchdaySelectOption {

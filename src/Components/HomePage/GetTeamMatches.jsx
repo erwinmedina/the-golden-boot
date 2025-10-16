@@ -8,7 +8,7 @@ export default function GetTeamMatches({teamArray, filteredMatches, matchday, fi
     
     return (
         <div className="teamMatchesContainer">
-            <div className="cardContainer">
+            <div className="cardContainer no-scrollbar">
                 {filteredMatches.length && filteredMatches.map((match, index) =>
                     <MatchesCard index={index} teamArray={teamArray} match={match} matchday={matchday} filter={filter}/>
                 )}
