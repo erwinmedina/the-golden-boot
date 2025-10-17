@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import GetStandings from "../../Components/HomePage/GetStandings";
 import Footer from "../../Components/HomePage/Footer";
+import "./StandingsPage.css"
 
 export default function StandingsPage({id, seasonID}) {
     const [standings, setStandings] = useState({});
@@ -32,7 +33,7 @@ export default function StandingsPage({id, seasonID}) {
     }, [id, seasonID]);
 
     return (
-        <div>
+        <div className="standingsPage">
             <GetStandings 
                 standings={standings} 
                 goalScorers={goalScorers}

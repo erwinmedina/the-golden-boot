@@ -7,7 +7,7 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0.7) 35%);
+  background: rgba(0,0,0,.6);
   overflow-x: hidden;
 }
 

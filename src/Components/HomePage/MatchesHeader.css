@@ -4,7 +4,8 @@
 
 .MatchesHeader {
     display: flex;
-    margin: 20px 0;
+    padding: 20px 0;
+    background: rgba(0,0,0,.4);
 }
 .selectOption {
     margin: 0px;
@@ -21,7 +22,7 @@
 @media screen and (max-width: 730px) {
     .MatchesHeader {
         flex-direction: column;
-        margin: 30px auto 10px auto;
+        /* margin: 30px auto 10px auto; */
     }
     .matchesHeader_title {
         margin: 0 auto;

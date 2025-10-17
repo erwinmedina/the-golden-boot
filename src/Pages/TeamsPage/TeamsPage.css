@@ -17,7 +17,6 @@
 .teamsPageInfo {
     display: flex;
     margin: 0 10px;
-    /* overflow: scroll; */
 }
 .squadToggle {
     cursor: pointer;
@@ -68,6 +67,7 @@
     border-radius: 40px;
     max-height: 600px;
     overflow-y: scroll;
+    width: 40%;
 }
 
 .teamsPageMultiple {
@@ -154,6 +154,7 @@
     }
     .teamsPageInfo {
         flex-direction: column;
+        overflow: hidden;
     }
     .teamsPageMatches {
         order: 2;
@@ -182,6 +183,11 @@
     .teamFormBalls {
         font-size: 10px;
     }
+
+    .teamsPageContainer {
+        width: 100%;
+        margin: 0 auto;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -195,13 +201,8 @@
     .teamsPageSmallStandings {
         margin: 10px 0;
     }
-    .teamsPageContainer {
-        width: 100%;
-        margin: 0 auto;
-    }
     .teamsPageMatches {
         width: 100%;
-        margin: 0 auto;
-        /* overflow: scroll; */
+        margin: 0 auto 20px auto;
     }
 }
