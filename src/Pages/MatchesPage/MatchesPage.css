@@ -1,3 +1,12 @@
+.matchesPageMatches > .teamMatchesContainer > .cardContainer > div {
+    width: 60%;
+}
+.matchesPageMatches {
+    width: 100%;
+    border-radius: 40px;
+    padding: 20px;
+    max-height: 100vh;
+}
 .matchesPage {
     display: flex;
     flex-direction: column;

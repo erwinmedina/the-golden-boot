@@ -93,7 +93,7 @@ export default function MatchesPage({id, seasonID}) {
                 />
             </div>
             <div className="matchesPageTeams teamsPageinfo">
-                <div className="teamsPageMatches">
+                <div className="matchesPageMatches">
                     <GetTeamMatches
                         teamArray={teamArray}
                         filteredMatches={filteredMatches}

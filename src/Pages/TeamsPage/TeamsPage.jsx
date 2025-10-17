@@ -20,9 +20,16 @@ export default function TeamsPage({id, seasonID}) {
     const [squadInfo, setSquadInfo] = useState([])
     const [filterSquad, setFilterSquad] = useState([])
     const [selectedTeams, setSelectedTeams] = useState([]);
-    const [isSquadVisible, setIsSquadVisible] = useState(true);
-    const [isFormVisible, setIsFormVisible] = useState(true);
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 800);
+    const [isSquadVisible, setIsSquadVisible] = useState(isSmallScreen ? false : true);
+    const [isFormVisible, setIsFormVisible] = useState(isSmallScreen ? false : true);
     const [areGamesVisible, setAreGameVisible] = useState(true);
+
+    useEffect(() => {
+        const handleResize = () => setIsSmallScreen(window.innerWidth < 800);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         async function fetchData() {
@@ -177,6 +184,8 @@ export default function TeamsPage({id, seasonID}) {
                             {isFormVisible && <SmallStandings selectedTeams={selectedTeams}/>}
                         </div>
                     </div>
+                    
+                    {isSmallScreen ? "" : <hr></hr>}
 
                     <div className={`teamsPageMultiple ${isSquadVisible ? '' : 'closed'}`}>
                         <div className="teamsPageSquad">

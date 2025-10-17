@@ -1,3 +1,7 @@
+.cardContainer > div {
+    width: 100%;
+}
+
 .loader {
     flex: 1;
     height: 100%;
@@ -17,6 +21,7 @@
 .teamsPageInfo {
     display: flex;
     margin: 0 10px;
+    overflow: hidden;
 }
 .squadToggle {
     cursor: pointer;
@@ -45,10 +50,9 @@
 }
 .teamsPageMatches {
     width: 60%;
-    /* background: rgba(255,255,255,0.25); */
     border-radius: 40px;
     padding: 20px;
-    max-height: 600px;
+    max-height: 100vh;
 }
 .teamsPageForm {
     max-height: 600px;
@@ -159,6 +163,7 @@
     .teamsPageMatches {
         order: 2;
         width: 100%;
+        max-height: 100%;
     }
     .teamsPageMultiple {
         padding: 20px;

@@ -4,9 +4,11 @@ import StadiumMap from "./StadiumMap";
 
 
 export default function ExpandMatchCard({index, match, teamArray, filter}) {
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 800);
     const [stadium, setStadium] = useState("");
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
+    const [shortDate, setShortDate] = useState("");
     const [wiki, setWiki] = useState([
         {
             name: "home",
@@ -30,14 +32,24 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
         ))
     }
 
-    useEffect(function() {
-        async function getDate() {
-            const dateInfo = new Date(match.utcDate);
-            const dateArray = dateInfo.toLocaleString().split(",")
-            setDate(dateInfo.toDateString());
-            setTime(dateArray[1]);
-        } getDate();
+    useEffect(() => {
+        const handleResize = () => setIsSmallScreen(window.innerWidth < 800);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
+    useEffect(() => {
+        const dateInfo = new Date(match.utcDate);
+        const longDate = dateInfo.toDateString();
+        const shortDateFormat = dateInfo.toLocaleDateString('en-US', { weekday: 'short', month: 'numeric', day: 'numeric', year:'2-digit'})
+        const fullTime = dateInfo.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit'})
+
+        setDate(longDate);
+        setShortDate(shortDateFormat);
+        setTime(fullTime);
+    }, [match, filter])
+
+    useEffect(function() {
         function updateWiki() {
             setWiki(prevWiki => [
                 {
@@ -83,7 +95,7 @@ export default function ExpandMatchCard({index, match, teamArray, filter}) {
                         <tbody>
                             <tr>
                                 <td>Date:</td>
-                                <td>{date}</td>
+                                <td>{isSmallScreen ? `${shortDate}` : `${date}`}</td>
                             </tr>
                             <tr>
                                 <td>Local Time:</td>

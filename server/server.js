@@ -40,16 +40,52 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'build')));
 
 // MONGO GET DATA
-app.get("/api/data", async(req, res) => {
+app.get("/api/data", async (req, res) => {
   try {
-    const { sportsId, year }  = req.query;
-    const collection = db.collection("AllTeams");
-    const data = await collection.find({sportsId: parseInt(sportsId), year: parseInt(year)}).toArray();
-    res.json(data)
+    const { sportsId, year } = req.query;
+    
+    if (!~sportsId || !year) {
+      return res.status(400).json({ message: "Missing SportsId or Year"});
+    }
+
+    const parsedSportsId = parseInt(sportsId)
+    const parsedYear = parseInt(year)
+
+    const collections = await db.listCollections().toArray();
+    const collectionNames = collections.map(c => c.name);
+
+    let foundData = [];
+
+    for (const name of collectionNames) {
+      const collection = db.collection(name);
+      const docs = await collection.find({sportsId: parsedSportsId, year: parsedYear}).toArray();
+      
+      if (docs.length > 0) {
+        foundData = docs.map(doc => ({ ...doc, collection: name}));
+        break;
+      }
+    }
+    if (foundData.length === 0) {
+      return res.status(404).json({ message: "No matching records found" });
+    }
+
+    res.json(foundData);
   } catch (err) {
-    res.status(500).json({message: err.message})
+    console.error("Error fetching data:", err);
+    res.status(500).json({ message: err.message });
   }
-})
+});
+
+// app.get("/api/data", async(req, res) => {
+//   try {
+//     const { sportsId, year }  = req.query;
+//     const collection = db.collection("AllTeams");
+//     const data = await collection.find({sportsId: parseInt(sportsId), year: parseInt(year)}).toArray();
+//     res.json(data)
+//   } catch (err) {
+//     res.status(500).json({message: err.message})
+//   }
+// })
 
 app.use('/api', require('./routes/football-service')(client));
 

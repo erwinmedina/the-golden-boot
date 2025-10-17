@@ -6,16 +6,26 @@ import "./MatchesCard.css"
 
 export default function MatchesCard({index, teamArray, match, matchday, filter}) {
 
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 800);
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
+    const [shortDate, setShortDate] = useState("");
 
-    useEffect(function() {
-        async function getDate() {
-            const dateInfo = new Date(match.utcDate);
-            const dateArray = dateInfo.toLocaleString().split(",")
-            setDate(dateInfo.toDateString());
-            setTime(dateArray[1]);
-        } getDate();
+    useEffect(() => {
+        const handleResize = () => setIsSmallScreen(window.innerWidth < 600);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    useEffect(() => {
+        const dateInfo = new Date(match.utcDate);
+        const longDate = dateInfo.toDateString();
+        const shortDateFormat = dateInfo.toLocaleDateString('en-US', { weekday: 'short', month: 'numeric', day: 'numeric', year:'2-digit'})
+        const fullTime = dateInfo.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit'})
+
+        setDate(longDate);
+        setShortDate(shortDateFormat);
+        setTime(fullTime);
     }, [match, filter])
 
     let dataToggleTag = "#navbarToggleExternalContent" + index;
@@ -26,11 +36,17 @@ export default function MatchesCard({index, teamArray, match, matchday, filter})
             <div className={`navbar-toggler ${matchday !== match.matchday ? '' : filter !== 'team' ? '' : 'currentMatchday'} matchesCardContainer`} data-toggle="collapse" data-target={dataToggleTag}>
                 <div className="topMatchCard">
                     {(matchday === match.matchday) && filter === "team" ? 
-                        <span className="matchday matchdayMatch">Current Matchday</span>
+                        <span className="matchday matchdayMatch">
+                            Current Matchday
+                        </span>
                         :
-                        <span className="matchday">Matchday {match.matchday}</span>
+                        <span className="matchday">
+                            {isSmallScreen ? `MD ${match.matchday}` : `Matchday ${match.matchday}`}
+                        </span>
                     }
-                    <span className={`${(matchday === match.matchday) && filter==="team"  ? "matchdayMatch" : ""} matchday`}>{date} - {time}</span>
+                    <span className={`${(matchday === match.matchday) && filter==="team"  ? "matchdayMatch" : ""} matchday`}>
+                        {isSmallScreen ? `${shortDate} - ${time}` : `${date} - ${time}`}
+                    </span>
                 </div>
 
                 <div className="botMatchCard ">
