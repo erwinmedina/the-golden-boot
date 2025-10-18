@@ -21,3 +21,13 @@
     display: flex;
     justify-content: center;
 }
+
+@media screen and (max-width: 770px) {
+    .matchesPageMatches > .teamMatchesContainer > .cardContainer > div {
+        width: 100%;
+    }
+    .matchesPageMatches {
+        padding: 0px;
+}
+    
+}
