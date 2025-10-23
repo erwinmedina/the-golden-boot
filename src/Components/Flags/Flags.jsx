@@ -2281,7 +2281,7 @@ const countryFlags = [
     "flag_1x1": "flags/1x1/us.svg",
     "flag_4x3": "flags/4x3/us.svg",
     "iso": true,
-    "name": "United States of America"
+    "name": "USA"
   },
   {
     "code": "xx",
