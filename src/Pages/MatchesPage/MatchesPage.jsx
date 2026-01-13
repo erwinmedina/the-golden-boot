@@ -52,6 +52,7 @@ export default function MatchesPage({id, seasonID}) {
                 console.error('Error processing team names:', error);
             }
         }
+        console.log(allTeamInfo)
         allTeamNames();
     }, [allTeamInfo]);
     

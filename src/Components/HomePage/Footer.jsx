@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <div className="footer">
             <hr></hr>
-            <p>© 2025 Erwin Medina | All Rights Reserved </p>
+            <p>© 2026 Erwin Medina | All Rights Reserved </p>
             <p>Connect with me!</p>
             <div className="footerIcons">
                 <a href="https://www.linkedin.com/in/erwinmedina/">

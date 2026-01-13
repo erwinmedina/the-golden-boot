@@ -29,12 +29,12 @@ export default function MatchesHeader({id, seasonID, teamArray, allMatches, filt
                 <LeagueTitleAndYear allMatches={allMatches} seasonID={seasonID}/>
             </div>
             <div className="selectOption">
-                <p>Select a team...</p>
                 <select className="form-select" onChange={handleTeam} name="team" id="team">
                     {teamArray && teamArray.map(team =>
                         <option value={team.name}>{team.shortName}</option>
                     )}
                 </select>
+                <p>Select a team...</p>
             </div>
         </div>
     )

@@ -1,12 +1,12 @@
 .MatchdayHeader {
     display: flex;
-    /* flex-direction: column; */
-    margin: 20px 0;
+    flex-direction: column;
+    margin: 5px 0;
 }
 .matchdaySelectOption {
-    margin-left: 100px;
+    /* margin-left: 100px; */
     width: 300px;
-    padding: 20px;
+    padding: 5px;
 }
 .matchdaySelectOption > select {
     text-align: center;

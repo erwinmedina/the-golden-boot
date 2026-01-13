@@ -14,8 +14,15 @@ import DashboardPage from '../DashboardPage/DashboardPage';
 export default function App() {
 
   const [id, setId] = useState(2021);
-  const currentYear = new Date().getFullYear();
-  const [seasonID, setSeasonID] = useState(currentYear);
+  
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const month = now.getMonth();
+  const seasonYear = month < 7 
+    ? currentYear - 1
+    : currentYear;
+  
+  const [seasonID, setSeasonID] = useState(seasonYear);
 
   return (
     <AuthProvider>
