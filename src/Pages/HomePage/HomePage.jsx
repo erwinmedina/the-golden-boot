@@ -8,7 +8,7 @@ export default function HomePage() {
             <div className="HomePageMain">
                 <img src="https://i.imgur.com/vMIlJl0.jpeg" alt="" />
                 <div className="HomePageMainText">
-                    <h3>An easier way to stay up-to-date with the latest games in your favorite soccer leagues</h3>
+                    <h3>An easier way to stay up-to-date with your favorite football leagues</h3>
                 </div>
             </div>
             <div className="features">
