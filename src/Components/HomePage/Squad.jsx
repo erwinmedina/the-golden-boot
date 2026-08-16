@@ -16,10 +16,10 @@ export default function Squad( { filterSquad }) {
             const squad = filterSquad[0]?.squad;
             if (squad) {
                 setGoalkeepers(squad?.filter(p => p.position.includes("Goalkeeper")))
-                setDefenders(squad?.filter(p => p.position.includes("Back")))
+                setDefenders(squad?.filter(p => p.position.includes("Defence")))
                 setMidfielders(squad?.filter(p => p.position.includes("Midfield")))
                 setForwards(squad?.filter(p => 
-                    p.position.includes("Forward") || p.position.includes("Winger")))
+                    p.position.includes("Forward") || p.position.includes("Winger") || p.position.includes("Offence")))
                 setCoach(filterSquad[0]?.coach)
             }
         }
